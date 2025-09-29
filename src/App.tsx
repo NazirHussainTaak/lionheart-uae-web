@@ -3,7 +3,31 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
 import Index from "./pages/Index";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Vendors from "./pages/Vendors";
+
+// Solution Pages
+import DataCenter from "./pages/solutions/DataCenter";
+import Cloud from "./pages/solutions/Cloud";
+import DataProtection from "./pages/solutions/DataProtection";
+import ConvergedSystems from "./pages/solutions/ConvergedSystems";
+import Storage from "./pages/solutions/Storage";
+import NetworkingSecurity from "./pages/solutions/NetworkingSecurity";
+import Migration from "./pages/solutions/Migration";
+import BCDR from "./pages/solutions/BCDR";
+import Deployment from "./pages/solutions/Deployment";
+import EDRXDRNDR from "./pages/solutions/EDRXDRNDR";
+
+// Technology Pages
+import IdentityManagement from "./pages/technologies/IdentityManagement";
+import ThreatIntelligence from "./pages/technologies/ThreatIntelligence";
+import SOC from "./pages/technologies/SOC";
+import NOC from "./pages/technologies/NOC";
+import HybridIT from "./pages/technologies/HybridIT";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,9 +39,34 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Index />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="vendors" element={<Vendors />} />
+            
+            {/* Solution Routes */}
+            <Route path="solutions/data-center" element={<DataCenter />} />
+            <Route path="solutions/cloud" element={<Cloud />} />
+            <Route path="solutions/data-protection" element={<DataProtection />} />
+            <Route path="solutions/converged-systems" element={<ConvergedSystems />} />
+            <Route path="solutions/storage" element={<Storage />} />
+            <Route path="solutions/networking-security" element={<NetworkingSecurity />} />
+            <Route path="solutions/migration" element={<Migration />} />
+            <Route path="solutions/bcdr" element={<BCDR />} />
+            <Route path="solutions/deployment" element={<Deployment />} />
+            <Route path="solutions/edr-xdr-ndr" element={<EDRXDRNDR />} />
+            
+            {/* Technology Routes */}
+            <Route path="technologies/identity-management" element={<IdentityManagement />} />
+            <Route path="technologies/threat-intelligence" element={<ThreatIntelligence />} />
+            <Route path="technologies/soc" element={<SOC />} />
+            <Route path="technologies/noc" element={<NOC />} />
+            <Route path="technologies/hybrid-it" element={<HybridIT />} />
+            
+            {/* Catch-all route */}
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

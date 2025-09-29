@@ -8,35 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Lion Heart Computer System Brand Colors */
+    --ecstasy: 22 91% 54%;           /* #f46e1e - Primary accent */
+    --mine-shaft: 0 0% 15%;          /* #272727 - Primary text/headers */
+    --spring-wood: 43 44% 96%;       /* #faf9f4 - Page background */
+    --mandalay: 42 73% 38%;          /* #aa7a1b - Secondary accent */
+    --nutmeg-wood: 28 94% 21%;       /* #693402 - Emphasis backgrounds */
+    --leather: 32 31% 46%;           /* #9a7651 - Neutral accent */
+    --sorrell-brown: 33 38% 72%;     /* #d3bb9c - Hover states */
+    --boulder: 0 0% 45%;             /* #747474 - Body text */
+
+    /* Design System Tokens */
+    --background: var(--spring-wood);
+    --foreground: var(--mine-shaft);
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: var(--mine-shaft);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--mine-shaft);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--ecstasy);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--sorrell-brown);
+    --secondary-foreground: var(--mine-shaft);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--leather);
+    --muted-foreground: var(--boulder);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--mandalay);
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--sorrell-brown);
+    --input: 0 0% 100%;
+    --ring: var(--ecstasy);
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--spring-wood)), hsl(var(--sorrell-brown) / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(var(--sorrell-brown) / 0.05));
+    --shadow-card: 0 4px 20px -4px hsl(var(--mine-shaft) / 0.1);
+    --shadow-hero: 0 20px 40px -20px hsl(var(--ecstasy) / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +74,39 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: var(--mine-shaft);
+    --foreground: var(--spring-wood);
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: var(--mine-shaft);
+    --card-foreground: var(--spring-wood);
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: var(--mine-shaft);
+    --popover-foreground: var(--spring-wood);
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--ecstasy);
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: var(--nutmeg-wood);
+    --secondary-foreground: var(--spring-wood);
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: var(--leather);
+    --muted-foreground: var(--sorrell-brown);
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: var(--mandalay);
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: var(--leather);
+    --input: var(--nutmeg-wood);
+    --ring: var(--ecstasy);
+
+    /* Dark mode custom tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--mine-shaft)), hsl(var(--nutmeg-wood) / 0.3));
+    --gradient-card: linear-gradient(145deg, hsl(var(--mine-shaft)), hsl(var(--nutmeg-wood) / 0.1));
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-hero: 0 20px 40px -20px hsl(var(--ecstasy) / 0.4);
   }
 }
 
@@ -100,6 +116,71 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground;
+  }
+}
+
+@layer components {
+  .hero-pattern {
+    background-image: 
+      linear-gradient(135deg, transparent 25%, hsl(var(--ecstasy) / 0.02) 25%),
+      linear-gradient(225deg, transparent 25%, hsl(var(--mandalay) / 0.02) 25%),
+      linear-gradient(45deg, transparent 25%, hsl(var(--ecstasy) / 0.01) 25%);
+    background-size: 60px 60px, 60px 60px, 40px 40px;
+    background-position: 0 0, 30px 30px, 15px 15px;
+  }
+
+  .lion-geometric {
+    position: relative;
+  }
+
+  .lion-geometric::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, hsl(var(--ecstasy) / 0.05) 50%, transparent 70%);
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    pointer-events: none;
+  }
+
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+    box-shadow: var(--shadow-hero);
+  }
+
+  .btn-secondary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl p-8 transition-all duration-300 hover:scale-105;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elevated:hover {
+    box-shadow: 0 8px 30px -8px hsl(var(--mine-shaft) / 0.15);
+  }
+
+  .section-padding {
+    @apply px-6 py-20 lg:px-8;
+  }
+
+  .container-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--ecstasy)), hsl(var(--mandalay)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
