@@ -1,32 +1,47 @@
 import { Link } from "react-router-dom";
-import { Shield, Zap, HeadphonesIcon, CheckCircle, Users, Clock } from "lucide-react";
+import { Shield, Zap, HeadphonesIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import heroImage from "@/assets/hero-datacenter.jpg";
-import socImage from "@/assets/soc-operations.jpg";
-import cloudImage from "@/assets/cloud-solutions.jpg";
+import identityImage from "@/assets/identity-management.jpg";
+import threatImage from "@/assets/threat-intelligence.jpg";
+import socImage from "@/assets/soc-center.jpg";
+import nocImage from "@/assets/noc-center.jpg";
+import hybridImage from "@/assets/hybrid-it.jpg";
 import ceoPortrait from "@/assets/ceo-portrait.jpg";
 import cooPortrait from "@/assets/coo-portrait.jpg";
 
 const Index = () => {
   const solutions = [
     {
-      title: "Data Center Solutions",
-      description: "Secure, scalable infrastructure built for enterprise demands",
-      href: "/solutions/data-center",
-      image: heroImage,
+      title: "Identity Management",
+      description: "Comprehensive identity and access control for enterprise security",
+      href: "/technologies/identity-management",
+      image: identityImage,
     },
     {
-      title: "Cloud Solutions",
-      description: "Hybrid cloud architectures that scale with your business",
-      href: "/solutions/cloud", 
-      image: cloudImage,
+      title: "Threat Intelligence Management",
+      description: "Advanced threat detection and intelligence for proactive defense",
+      href: "/technologies/threat-intelligence",
+      image: threatImage,
     },
     {
       title: "Security Operations Centre",
       description: "24/7 monitoring and threat response for total peace of mind",
       href: "/technologies/soc",
       image: socImage,
+    },
+    {
+      title: "Network Operations Center",
+      description: "Continuous network monitoring and infrastructure management",
+      href: "/technologies/noc",
+      image: nocImage,
+    },
+    {
+      title: "Hybrid IT Management",
+      description: "Seamless integration of cloud and on-premise infrastructure",
+      href: "/technologies/hybrid-it",
+      image: hybridImage,
     },
   ];
 
@@ -148,19 +163,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Solutions */}
+      {/* Featured Technologies */}
       <section className="section-padding bg-spring-wood">
         <div className="container-width">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Featured Solutions
+              Core Technologies
             </h2>
             <p className="text-lg text-boulder max-w-2xl mx-auto">
-              End-to-end IT solutions designed for the most demanding enterprise environments.
+              Advanced platforms we implement and operate for enterprise-grade security and performance.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution, index) => (
               <Link key={index} to={solution.href} className="group">
                 <Card className="card-elevated h-full overflow-hidden">
@@ -186,7 +201,7 @@ const Index = () => {
 
           <div className="text-center mt-12">
             <Button asChild className="btn-secondary">
-              <Link to="/solutions/data-center">View All Solutions</Link>
+              <Link to="/technologies/identity-management">View All Technologies</Link>
             </Button>
           </div>
         </div>

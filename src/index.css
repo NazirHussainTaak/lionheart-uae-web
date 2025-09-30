@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Lion Heart Computer System Brand Colors */
+    /* Lion Heart Computer System Brand Colors - Default Theme */
     --ecstasy: 22 91% 54%;           /* #f46e1e - Primary accent */
     --mine-shaft: 0 0% 15%;          /* #272727 - Primary text/headers */
     --spring-wood: 43 44% 96%;       /* #faf9f4 - Page background */
@@ -71,6 +71,51 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Ocean Blue Theme */
+  :root[data-theme="ocean"] {
+    --ecstasy: 199 89% 48%;          /* #0284c7 */
+    --mandalay: 199 95% 30%;         /* #075985 */
+    --nutmeg-wood: 199 100% 20%;     /* #024061 */
+    --leather: 199 30% 50%;          /* #5C9DB8 */
+    --sorrell-brown: 199 40% 75%;    /* #A3CBE0 */
+  }
+
+  /* Forest Green Theme */
+  :root[data-theme="forest"] {
+    --ecstasy: 142 76% 36%;          /* #16a34a */
+    --mandalay: 142 90% 25%;         /* #0B6E2F */
+    --nutmeg-wood: 142 95% 18%;      /* #054F21 */
+    --leather: 142 30% 45%;          /* #5B9C73 */
+    --sorrell-brown: 142 35% 70%;    /* #9BC4AC */
+  }
+
+  /* Sunset Purple Theme */
+  :root[data-theme="sunset"] {
+    --ecstasy: 271 81% 56%;          /* #9333ea */
+    --mandalay: 271 91% 40%;         /* #6B21A8 */
+    --nutmeg-wood: 271 95% 28%;      /* #4C1D95 */
+    --leather: 271 30% 50%;          /* #9D7BB8 */
+    --sorrell-brown: 271 35% 72%;    /* #C8B3DC */
+  }
+
+  /* Royal Gold Theme */
+  :root[data-theme="royal"] {
+    --ecstasy: 43 96% 56%;           /* #eab308 */
+    --mandalay: 43 96% 40%;          /* #ca8a04 */
+    --nutmeg-wood: 43 100% 25%;      /* #854d0e */
+    --leather: 43 35% 50%;           /* #B39656 */
+    --sorrell-brown: 43 40% 72%;     /* #D4C195 */
+  }
+
+  /* Slate Gray Theme */
+  :root[data-theme="slate"] {
+    --ecstasy: 215 20% 45%;          /* #475569 */
+    --mandalay: 215 25% 27%;         /* #334155 */
+    --nutmeg-wood: 215 30% 18%;      /* #1e293b */
+    --leather: 215 15% 50%;          /* #6B7B8C */
+    --sorrell-brown: 215 20% 72%;    /* #A8B5C4 */
   }
 
   .dark {

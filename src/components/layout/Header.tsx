@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -141,10 +142,13 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* CTA Button - Desktop */}
-          <Button asChild className="hidden lg:inline-flex btn-hero">
-            <Link to="/contact">Get a Consultation</Link>
-          </Button>
+          {/* CTA Button & Theme Switcher - Desktop */}
+          <div className="hidden lg:flex items-center gap-3">
+            <ThemeSwitcher />
+            <Button asChild className="btn-hero">
+              <Link to="/contact">Get a Consultation</Link>
+            </Button>
+          </div>
 
           {/* Mobile Menu Button */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
