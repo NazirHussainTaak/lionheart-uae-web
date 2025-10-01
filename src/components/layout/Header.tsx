@@ -45,7 +45,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-mine-shaft/95 dark:bg-mine-shaft backdrop-blur supports-[backdrop-filter]:bg-mine-shaft/95">
       <div className="container-width">
         <div className="flex h-16 items-center justify-between px-6">
           {/* Logo */}
@@ -59,7 +59,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
@@ -70,7 +70,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/about") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
@@ -79,15 +79,17 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
+                  Solutions
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
+                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2 bg-background">
                     {solutionsLinks.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <Link
                             to={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground text-foreground"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </Link>
@@ -99,15 +101,17 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Technologies</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
+                  Technologies
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background">
                     {technologyLinks.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <Link
                             to={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground text-foreground"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </Link>
@@ -121,7 +125,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/vendors") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
@@ -132,7 +136,7 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-sorrell-brown/10 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/contact") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
