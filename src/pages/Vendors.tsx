@@ -14,14 +14,18 @@ const Vendors = () => {
       category: "cloud",
       description: "Virtualization and cloud infrastructure solutions for modern data centers",
       capabilities: ["vSphere", "vSAN", "NSX", "Cloud Foundation"],
-      tier: "Strategic Partner"
+      tier: "Strategic Partner",
+      logo: null,
+      url: null
     },
     {
       name: "Cisco",
       category: "networking", 
       description: "Network infrastructure, security, and collaboration solutions",
       capabilities: ["Switching", "Routing", "Security", "Wireless"],
-      tier: "Gold Partner"
+      tier: "Gold Partner",
+      logo: null,
+      url: null
     },
     {
       name: "Dell EMC",
@@ -35,14 +39,18 @@ const Vendors = () => {
       category: "cloud",
       description: "Cloud services, operating systems, and productivity solutions",
       capabilities: ["Azure", "Office 365", "Windows Server", "SQL Server"],
-      tier: "Gold Partner"
+      tier: "Gold Partner",
+      logo: null,
+      url: null
     },
     {
       name: "CrowdStrike",
       category: "security",
       description: "Cloud-native endpoint protection and threat intelligence",
       capabilities: ["Falcon Platform", "EDR", "Threat Hunting", "Cloud Security"],
-      tier: "Technology Partner"
+      tier: "Technology Partner",
+      logo: null,
+      url: null
     },
     {
       name: "Fortinet",
@@ -91,9 +99,15 @@ const Vendors = () => {
       category: "security",
       description: "Security information and event management (SIEM)",
       capabilities: ["Enterprise Security", "SOAR", "UBA", "Phantom"],
-      tier: "Technology Partner"
+      tier: "Technology Partner",
+      logo: null,
+      url: null
     }
-  ];
+  ].map(v => ({
+    ...v,
+    logo: v.logo || null,
+    url: v.url || null
+  }));
 
   const categories = [
     { id: "all", label: "All Partners", count: vendors.length },
@@ -114,22 +128,31 @@ const Vendors = () => {
       case "Premier Partner":
         return "bg-accent text-accent-foreground";
       case "Gold Partner":
-        return "bg-mandalay text-white";
+        return "bg-yellow-600 text-white dark:bg-yellow-500";
       default:
         return "bg-secondary text-secondary-foreground";
     }
   };
 
+  const getInitials = (name: string) => {
+    return name
+      .split(" ")
+      .map(word => word[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-pattern bg-spring-wood section-padding">
+      <section className="hero-pattern bg-spring-wood dark:bg-neutral-900 section-padding">
         <div className="container-width">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-foreground">
               Technology Partners
             </h1>
-            <p className="text-xl text-boulder leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed">
               Platforms we implement and operate with care. Our strategic partnerships 
               ensure you get the best enterprise-grade solutions.
             </p>
@@ -156,26 +179,37 @@ const Vendors = () => {
         {/* Vendors Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVendors.map((vendor, index) => (
-            <Card key={index} className="card-elevated h-full">
+            <Card key={index} className="card-elevated h-full bg-card dark:bg-card border-border">
               <CardHeader>
-                <div className="flex items-start justify-between">
-                  <CardTitle className="text-xl font-heading">{vendor.name}</CardTitle>
-                  <Badge className={getTierColor(vendor.tier)}>
+                <div className="flex items-start gap-3 min-w-0">
+                  <div className="flex-shrink-0">
+                    {vendor.logo ? (
+                      <img src={vendor.logo} alt={`${vendor.name} logo`} className="h-8 w-auto object-contain" />
+                    ) : (
+                      <div className="h-8 w-8 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
+                        {getInitials(vendor.name)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <CardTitle className="text-xl font-heading truncate text-card-foreground">{vendor.name}</CardTitle>
+                  </div>
+                  <Badge className={`${getTierColor(vendor.tier)} flex-shrink-0 text-[11px] px-2.5 py-1 whitespace-nowrap`}>
                     {vendor.tier}
                   </Badge>
                 </div>
-                <p className="text-boulder text-sm">{vendor.description}</p>
+                <p className="text-muted-foreground text-sm">{vendor.description}</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium mb-2 text-sm">Key Capabilities</h4>
+                    <h4 className="font-medium mb-2 text-sm text-card-foreground">Key Capabilities</h4>
                     <div className="flex flex-wrap gap-2">
                       {vendor.capabilities.map((capability, capIndex) => (
                         <Badge
                           key={capIndex}
                           variant="secondary"
-                          className="text-xs"
+                          className="text-[11px] px-2 py-1 rounded-full"
                         >
                           {capability}
                         </Badge>
@@ -183,10 +217,16 @@ const Vendors = () => {
                     </div>
                   </div>
                   
-                  <Button className="w-full btn-secondary text-sm">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Book a Demo
-                  </Button>
+                  <Link 
+                    to="/contact" 
+                    state={{ vendor: vendor.name }}
+                    className="block"
+                  >
+                    <Button className="w-full btn-secondary text-sm">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Book a Demo
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -196,45 +236,45 @@ const Vendors = () => {
         {/* Partnership Benefits */}
         <section className="mt-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
               Partnership Benefits
             </h2>
-            <p className="text-lg text-boulder max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Why our vendor relationships deliver superior value for your organization.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="card-elevated text-center">
+            <Card className="card-elevated text-center bg-card dark:bg-card">
               <CardHeader>
-                <CardTitle className="text-lg font-heading">Certified Expertise</CardTitle>
+                <CardTitle className="text-lg font-heading text-card-foreground">Certified Expertise</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-boulder text-sm">
+                <p className="text-muted-foreground text-sm">
                   Our team holds advanced certifications across all partner technologies, 
                   ensuring expert implementation and support.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="card-elevated text-center">
+            <Card className="card-elevated text-center bg-card dark:bg-card">
               <CardHeader>
-                <CardTitle className="text-lg font-heading">Preferred Pricing</CardTitle>
+                <CardTitle className="text-lg font-heading text-card-foreground">Preferred Pricing</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-boulder text-sm">
+                <p className="text-muted-foreground text-sm">
                   Strategic partnerships provide access to competitive pricing and 
                   exclusive offers for our clients.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="card-elevated text-center">
+            <Card className="card-elevated text-center bg-card dark:bg-card">
               <CardHeader>
-                <CardTitle className="text-lg font-heading">Direct Support</CardTitle>
+                <CardTitle className="text-lg font-heading text-card-foreground">Direct Support</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-boulder text-sm">
+                <p className="text-muted-foreground text-sm">
                   Priority access to vendor technical support and escalation paths 
                   when you need them most.
                 </p>
@@ -245,7 +285,7 @@ const Vendors = () => {
 
         {/* CTA Section */}
         <section className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-primary to-accent p-12 rounded-2xl text-white">
+          <div className="bg-gradient-to-r from-primary to-accent p-12 rounded-2xl text-primary-foreground">
             <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">
               Ready to Explore These Solutions?
             </h2>
@@ -253,7 +293,7 @@ const Vendors = () => {
               Let's discuss which technologies align best with your business objectives 
               and technical requirements.
             </p>
-            <Button asChild className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold">
+            <Button asChild className="bg-background text-foreground hover:bg-background/90 px-8 py-4 text-lg font-semibold">
               <Link to="/contact">Schedule a Consultation</Link>
             </Button>
           </div>

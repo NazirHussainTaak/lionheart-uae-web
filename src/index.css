@@ -205,13 +205,17 @@ All colors MUST be HSL.
   }
 
   .card-elevated {
-    @apply bg-white rounded-2xl p-8 transition-all duration-300 hover:scale-105;
+    @apply rounded-2xl p-8 transition-all duration-300 hover:scale-105;
     background: var(--gradient-card);
     box-shadow: var(--shadow-card);
   }
 
   .card-elevated:hover {
     box-shadow: 0 8px 30px -8px hsl(var(--mine-shaft) / 0.15);
+  }
+
+  .dark .card-elevated:hover {
+    box-shadow: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
   }
 
   .section-padding {
