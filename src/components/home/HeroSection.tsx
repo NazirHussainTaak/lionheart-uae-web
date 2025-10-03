@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-datacenter.jpg";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+  
   const stats = [
     { value: "99.98%", label: "Managed Uptime" },
     { value: "24/7", label: "SOC/NOC Support" },
@@ -16,22 +19,19 @@ const HeroSection = () => {
           <div className="space-y-8">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground">
-                Enterprise IT you can{" "}
-                <span className="text-gradient">trust</span>
-                —today and under pressure.
+                {t('hero.title')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                From cloud to SOC, Lion Heart Computer System secures and modernizes 
-                your infrastructure end-to-end.
+                {t('hero.description')}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild className="btn-hero">
-                <Link to="/contact">Get a Consultation</Link>
+                <Link to="/contact">{t('hero.cta')}</Link>
               </Button>
               <Button asChild className="btn-secondary">
-                <Link to="/solutions/data-center">See Our Solutions</Link>
+                <Link to="/solutions/data-center">{t('hero.ctaSecondary')}</Link>
               </Button>
             </div>
 

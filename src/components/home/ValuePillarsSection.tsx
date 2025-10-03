@@ -1,26 +1,29 @@
 import { Shield, Zap, HeadphonesIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 
 const ValuePillarsSection = () => {
+  const { t } = useTranslation();
+  
   const pillars = [
     {
       icon: Shield,
-      title: "Secure by Design",
-      description: "Proactive defense with EDR/XDR/NDR. Your security posture strengthens before threats emerge.",
+      title: t('valuePillars.partnership.title'),
+      description: t('valuePillars.partnership.description'),
       colorClass: "bg-primary/10 dark:bg-primary/20",
       iconClass: "text-primary"
     },
     {
       icon: Zap,
-      title: "Built for Scale",
-      description: "Converged and hyperconverged systems that grow with your ambition. Hybrid IT made simple.",
+      title: t('valuePillars.expertise.title'),
+      description: t('valuePillars.expertise.description'),
       colorClass: "bg-accent/10 dark:bg-accent/20",
       iconClass: "text-accent"
     },
     {
       icon: HeadphonesIcon,
-      title: "Always-On Support",
-      description: "Deployment, maintenance, and BCDR services. Your critical systems stay running—we make sure of it.",
+      title: t('valuePillars.solutions.title'),
+      description: t('valuePillars.solutions.description'),
       colorClass: "bg-mandalay/10 dark:bg-mandalay/20",
       iconClass: "text-mandalay"
     }
@@ -31,11 +34,10 @@ const ValuePillarsSection = () => {
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
-            Why Enterprise Leaders Choose Lion Heart
+            {t('valuePillars.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Bold like a lion, precise like an engineer. We deliver enterprise-grade 
-            solutions without the drama.
+            {t('valuePillars.subtitle')}
           </p>
         </div>
 

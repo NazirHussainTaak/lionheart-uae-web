@@ -167,6 +167,36 @@ All colors MUST be HSL.
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-foreground;
   }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    @apply font-arabic;
+  }
+
+  [dir="rtl"] .font-heading {
+    @apply font-arabic;
+  }
+
+  /* RTL Spacing adjustments */
+  [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 0;
+  }
+
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 0.75rem;
+    margin-inline-end: 0;
+  }
+
+  [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 1rem;
+    margin-inline-end: 0;
+  }
+
+  [dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 1.5rem;
+    margin-inline-end: 0;
+  }
 }
 
 @layer components {

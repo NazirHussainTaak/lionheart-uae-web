@@ -13,9 +13,12 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
@@ -59,28 +62,28 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
-                  <Link to="/">Home</Link>
+                  <Link to="/">{t('nav.home')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/about") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
-                  <Link to="/about">About Us</Link>
+                  <Link to="/about">{t('nav.about')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
-                  Solutions
+                  {t('nav.solutions')}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2 bg-background">
@@ -102,7 +105,7 @@ const Header = () => {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
-                  Technologies
+                  {t('nav.technologies')}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 bg-background">
@@ -125,32 +128,33 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/vendors") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
-                  <Link to="/vendors">Vendors</Link>
+                  <Link to="/vendors">{t('nav.vendors')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuLink
                   asChild
-                  className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
+                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
                     isActive("/contact") ? "bg-accent text-accent-foreground" : ""
                   }`}
                 >
-                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/contact">{t('nav.contact')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* CTA Button & Theme Switcher - Desktop */}
+          {/* CTA Button & Theme/Language Switcher - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageSwitcher />
             <ThemeSwitcher />
             <Button asChild className="btn-hero">
-              <Link to="/contact">Get a Consultation</Link>
+              <Link to="/contact">{t('nav.consultation')}</Link>
             </Button>
           </div>
 
@@ -163,24 +167,27 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col space-y-4">
+                <div className="flex gap-2 mb-4">
+                  <LanguageSwitcher />
+                </div>
                 <Link
                   to="/"
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  Home
+                  {t('nav.home')}
                 </Link>
                 <Link
                   to="/about"
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  About Us
+                  {t('nav.about')}
                 </Link>
 
                 <Collapsible open={solutionsOpen} onOpenChange={setSolutionsOpen}>
                   <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-medium hover:text-primary transition-colors">
-                    Solutions
+                    {t('nav.solutions')}
                     <ChevronDown className="h-4 w-4" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-2 pt-2">
@@ -199,7 +206,7 @@ const Header = () => {
 
                 <Collapsible open={techOpen} onOpenChange={setTechOpen}>
                   <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-medium hover:text-primary transition-colors">
-                    Technologies
+                    {t('nav.technologies')}
                     <ChevronDown className="h-4 w-4" />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-2 pt-2">
@@ -221,19 +228,19 @@ const Header = () => {
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  Vendors
+                  {t('nav.vendors')}
                 </Link>
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  Contact Us
+                  {t('nav.contact')}
                 </Link>
 
                 <Button asChild className="btn-hero w-full mt-6">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Get a Consultation
+                    {t('nav.consultation')}
                   </Link>
                 </Button>
               </nav>

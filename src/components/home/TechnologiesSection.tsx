@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 import identityImage from "@/assets/identity-management.jpg";
 import threatImage from "@/assets/threat-intelligence.jpg";
 import socImage from "@/assets/soc-center.jpg";
@@ -8,34 +9,36 @@ import nocImage from "@/assets/noc-center.jpg";
 import hybridImage from "@/assets/hybrid-it.jpg";
 
 const TechnologiesSection = () => {
+  const { t } = useTranslation();
+  
   const technologies = [
     {
-      title: "Identity Management",
-      description: "Comprehensive identity and access control for enterprise security",
+      title: t('technologies.identity.title'),
+      description: t('technologies.identity.description'),
       href: "/technologies/identity-management",
       image: identityImage,
     },
     {
-      title: "Threat Intelligence Management",
-      description: "Advanced threat detection and intelligence for proactive defense",
+      title: t('technologies.threat.title'),
+      description: t('technologies.threat.description'),
       href: "/technologies/threat-intelligence",
       image: threatImage,
     },
     {
-      title: "Security Operations Centre",
-      description: "24/7 monitoring and threat response for total peace of mind",
+      title: t('technologies.soc.title'),
+      description: t('technologies.soc.description'),
       href: "/technologies/soc",
       image: socImage,
     },
     {
-      title: "Network Operations Center",
-      description: "Continuous network monitoring and infrastructure management",
+      title: t('technologies.noc.title'),
+      description: t('technologies.noc.description'),
       href: "/technologies/noc",
       image: nocImage,
     },
     {
-      title: "Hybrid IT Management",
-      description: "Seamless integration of cloud and on-premise infrastructure",
+      title: t('technologies.hybrid.title'),
+      description: t('technologies.hybrid.description'),
       href: "/technologies/hybrid-it",
       image: hybridImage,
     },
@@ -46,10 +49,10 @@ const TechnologiesSection = () => {
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
-            Core Technologies
+            {t('technologies.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Advanced platforms we implement and operate for enterprise-grade security and performance.
+            {t('technologies.subtitle')}
           </p>
         </div>
 
@@ -80,7 +83,7 @@ const TechnologiesSection = () => {
 
         <div className="text-center mt-12">
           <Button asChild className="btn-secondary">
-            <Link to="/technologies/identity-management">View All Technologies</Link>
+            <Link to="/technologies/identity-management">{t('technologies.learnMore')}</Link>
           </Button>
         </div>
       </div>

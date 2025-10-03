@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Layout from "./components/layout/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -33,44 +35,58 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AppContent = () => {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = dir;
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Index />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="vendors" element={<Vendors />} />
+          
+          {/* Solution Routes */}
+          <Route path="solutions/data-center" element={<DataCenter />} />
+          <Route path="solutions/cloud" element={<Cloud />} />
+          <Route path="solutions/data-protection" element={<DataProtection />} />
+          <Route path="solutions/converged-systems" element={<ConvergedSystems />} />
+          <Route path="solutions/storage" element={<Storage />} />
+          <Route path="solutions/networking-security" element={<NetworkingSecurity />} />
+          <Route path="solutions/migration" element={<Migration />} />
+          <Route path="solutions/bcdr" element={<BCDR />} />
+          <Route path="solutions/deployment" element={<Deployment />} />
+          <Route path="solutions/edr-xdr-ndr" element={<EDRXDRNDR />} />
+          
+          {/* Technology Routes */}
+          <Route path="technologies/identity-management" element={<IdentityManagement />} />
+          <Route path="technologies/threat-intelligence" element={<ThreatIntelligence />} />
+          <Route path="technologies/soc" element={<SOC />} />
+          <Route path="technologies/noc" element={<NOC />} />
+          <Route path="technologies/hybrid-it" element={<HybridIT />} />
+          
+          {/* Catch-all route */}
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Index />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="vendors" element={<Vendors />} />
-            
-            {/* Solution Routes */}
-            <Route path="solutions/data-center" element={<DataCenter />} />
-            <Route path="solutions/cloud" element={<Cloud />} />
-            <Route path="solutions/data-protection" element={<DataProtection />} />
-            <Route path="solutions/converged-systems" element={<ConvergedSystems />} />
-            <Route path="solutions/storage" element={<Storage />} />
-            <Route path="solutions/networking-security" element={<NetworkingSecurity />} />
-            <Route path="solutions/migration" element={<Migration />} />
-            <Route path="solutions/bcdr" element={<BCDR />} />
-            <Route path="solutions/deployment" element={<Deployment />} />
-            <Route path="solutions/edr-xdr-ndr" element={<EDRXDRNDR />} />
-            
-            {/* Technology Routes */}
-            <Route path="technologies/identity-management" element={<IdentityManagement />} />
-            <Route path="technologies/threat-intelligence" element={<ThreatIntelligence />} />
-            <Route path="technologies/soc" element={<SOC />} />
-            <Route path="technologies/noc" element={<NOC />} />
-            <Route path="technologies/hybrid-it" element={<HybridIT />} />
-            
-            {/* Catch-all route */}
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+        <AppContent />
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>

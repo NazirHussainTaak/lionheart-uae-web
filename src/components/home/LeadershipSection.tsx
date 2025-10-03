@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 import ceoPortrait from "@/assets/ceo-portrait.jpg";
 import cooPortrait from "@/assets/coo-portrait.jpg";
 
 const LeadershipSection = () => {
+  const { t } = useTranslation();
+  
   const leaders = [
     {
       name: "Naim Taskin",
-      title: "Chief Executive Officer",
-      description: "Naim guides strategy and partnerships, aligning technology with business outcomes.",
+      title: t('leadership.ceo.name'),
+      description: t('leadership.ceo.bio'),
       email: "naim@lionheartuae.com",
       phone: "+971 55 558 9672",
       image: ceoPortrait,
@@ -17,8 +20,8 @@ const LeadershipSection = () => {
     },
     {
       name: "Dr Aliasgar Taskin",
-      title: "Chief Operating Officer",
-      description: "Dr Aliasgar leads delivery excellence across cloud, security, and operations.",
+      title: t('leadership.coo.name'),
+      description: t('leadership.coo.bio'),
       email: "aliasgar@lionheartuae.com",
       phone: "+971 50 807 2786",
       image: cooPortrait,
@@ -31,10 +34,10 @@ const LeadershipSection = () => {
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-foreground">
-            Meet Our Leadership
+            {t('leadership.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experienced leaders dedicated to your success.
+            {t('leadership.subtitle')}
           </p>
         </div>
 
@@ -66,7 +69,7 @@ const LeadershipSection = () => {
 
         <div className="text-center mt-12">
           <Button asChild className="btn-secondary">
-            <Link to="/about">Learn More About Us</Link>
+            <Link to="/about">{t('common.learnMore')}</Link>
           </Button>
         </div>
       </div>
