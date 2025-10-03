@@ -21,11 +21,8 @@ const LanguageSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-2">
-          <Languages className="h-4 w-4" />
-          <span className="hidden sm:inline-block">
-            {i18n.language === 'ar' ? 'العربية' : 'English'}
-          </span>
+        <Button variant="outline" size="icon">
+          <Languages className="h-5 w-5" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-background z-50">
