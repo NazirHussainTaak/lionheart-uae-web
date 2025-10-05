@@ -1,4 +1,5 @@
-import HeroSection from "@/components/home/HeroSection";
+// import HeroSection from "@/components/home/HeroSection";
+import HeroSection from "@/pages/home/01-HeroSection";
 import ValuePillarsSection from "@/components/home/ValuePillarsSection";
 import TechnologiesSection from "@/components/home/TechnologiesSection";
 import LeadershipSection from "@/components/home/LeadershipSection";
@@ -14,12 +15,12 @@ const Index = () => {
         <AnimatedSection animation="fade-slide">
           <ValuePillarsSection />
         </AnimatedSection>
-        <AnimatedSection animation="fade-slide" delay={0.2}>
+{/*        <AnimatedSection animation="fade-slide" delay={0.2}>
           <TechnologiesSection />
         </AnimatedSection>
         <AnimatedSection animation="fade-slide" delay={0.3}>
           <LeadershipSection />
-        </AnimatedSection>
+        </AnimatedSection>*/}
       </div>
     </>
   );
