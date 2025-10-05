@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "solutions": "Solutions",
+    "technologies": "Technologies",
+    "vendors": "Vendors",
+    "contact": "Contact Us",
+    "consultation": "Get a Consultation"
+  },
+  "hero": {
+    "title": "Transforming IT Infrastructure with Expertise & Innovation",
+    "subtitle": "Your Trusted Technology Partner in the Middle East",
+    "description": "We deliver cutting-edge IT solutions powered by world-class vendors and managed by industry-certified professionals.",
+    "cta": "Explore Solutions",
+    "ctaSecondary": "Contact Us"
+  },
+  "valuePillars": {
+    "title": "Our Value Pillars",
+    "subtitle": "What Makes Us Your Ideal Technology Partner",
+    "partnership": {
+      "title": "Partnership Excellence",
+      "description": "Authorized partnerships with leading global technology vendors"
+    },
+    "expertise": {
+      "title": "Certified Expertise",
+      "description": "Team of industry-certified professionals with proven track records"
+    },
+    "solutions": {
+      "title": "End-to-End Solutions",
+      "description": "Complete lifecycle support from consulting to deployment and maintenance"
+    },
+    "innovation": {
+      "title": "Innovation Focus",
+      "description": "Staying ahead with latest technologies and industry best practices"
+    }
+  },
+  "technologies": {
+    "title": "Core Technologies & Services",
+    "subtitle": "Comprehensive Security & IT Management Solutions",
+    "identity": {
+      "title": "Identity Management",
+      "description": "Comprehensive identity and access management solutions"
+    },
+    "threat": {
+      "title": "Threat Intelligence Management",
+      "description": "Advanced threat detection and intelligence systems"
+    },
+    "soc": {
+      "title": "Security Operations Centre",
+      "description": "24/7 security monitoring and incident response"
+    },
+    "noc": {
+      "title": "Network Operations Center",
+      "description": "Proactive network monitoring and management"
+    },
+    "hybrid": {
+      "title": "Hybrid IT Management",
+      "description": "Seamless integration of on-premise and cloud infrastructure"
+    },
+    "learnMore": "Learn More"
+  },
+  "leadership": {
+    "title": "Our Leadership Team",
+    "subtitle": "Experienced Professionals Driving Excellence",
+    "ceo": {
+      "name": "CEO & Founder",
+      "bio": "With over 20 years of experience in IT infrastructure and enterprise solutions, our CEO leads Lion Heart with a vision of innovation and excellence."
+    },
+    "coo": {
+      "name": "Chief Operating Officer",
+      "bio": "Expert in operational efficiency and strategic partnerships, driving our commitment to delivering world-class IT solutions across the Middle East."
+    }
+  },
+  "about": {
+    "breadcrumb": "About Us",
+    "hero": {
+      "title": "Trusted Technology Partner in the Middle East",
+      "description": "Lion Heart Computer System is a leading provider of comprehensive IT infrastructure solutions, serving enterprises across the Middle East with cutting-edge technology and expert consultation."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To empower businesses with reliable, scalable, and innovative IT infrastructure solutions that drive digital transformation and operational excellence."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the most trusted technology partner in the Middle East, known for delivering exceptional value through expertise, innovation, and customer-centric solutions."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "excellence": {
+        "title": "Excellence",
+        "description": "We pursue excellence in every solution we deliver"
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We operate with transparency and honesty"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace new technologies and methodologies"
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We build long-term relationships based on trust"
+      }
+    },
+    "expertise": {
+      "title": "Our Expertise",
+      "description": "With industry-certified professionals and authorized partnerships with global technology leaders, we deliver comprehensive IT solutions across multiple domains:",
+      "domains": [
+        "Data Center Infrastructure",
+        "Cloud Solutions & Migration",
+        "Cybersecurity & Compliance",
+        "Network Architecture",
+        "Storage & Backup Solutions",
+        "IT Operations Management"
+      ]
+    },
+    "cta": {
+      "title": "Ready to Transform Your IT Infrastructure?",
+      "button": "Get Started Today"
+    }
+  },
+  "vendors": {
+    "breadcrumb": "Vendors",
+    "hero": {
+      "title": "Technology Partnerships",
+      "description": "We partner with industry-leading vendors to deliver best-in-class solutions"
+    },
+    "filter": {
+      "all": "All Vendors",
+      "strategic": "Strategic Partners",
+      "premier": "Premier Partners",
+      "gold": "Gold Partners",
+      "technology": "Technology Partners"
+    },
+    "tiers": {
+      "strategic": "Strategic Partner",
+      "premier": "Premier Partner",
+      "gold": "Gold Partner",
+      "technology": "Technology Partner"
+    },
+    "visitSite": "Visit Site",
+    "inquire": "Inquire About"
+  },
+  "contact": {
+    "breadcrumb": "Contact Us",
+    "hero": {
+      "title": "Get in Touch",
+      "description": "Have a question or need assistance? We're here to help."
+    },
+    "vendorInquiry": "You're inquiring about solutions from",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell us about your requirements...",
+      "vendorMessagePlaceholder": "I'm interested in learning more about {{vendor}} solutions...",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Address",
+        "line1": "Bank Melli Iran Building, 2nd Floor",
+        "line2": "Office No. 11, Khaled Bin Waleed Street",
+        "line3": "P.O. Box 99927, Dubai, U.A.E"
+      },
+      "phone": "Phone",
+      "email": "Email",
+      "hours": {
+        "title": "Business Hours",
+        "days": "Sunday - Thursday",
+        "time": "9:00 AM - 6:00 PM GST"
+      }
+    },
+    "map": {
+      "title": "Our Location",
+      "openInMaps": "Open in Google Maps"
+    }
+  },
+  "footer": {
+    "description": "Delivering comprehensive IT infrastructure solutions across the Middle East.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "technologies": "Technologies",
+    "contact": "Contact Us",
+    "subscribe": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest updates",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "rights": "All rights reserved.",
+    "solutions": {
+      "dataCenter": "Data Center Solutions",
+      "cloud": "Cloud Solutions",
+      "dataProtection": "Data Protection",
+      "networking": "Networking Security"
+    }
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "loading": "Loading..."
+  }
+}

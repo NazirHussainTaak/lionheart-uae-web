@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Shield, Target, Users, Award, MapPin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ceoPortrait from "@/assets/portrait/ceo-portrait.jpg";
-import cooPortrait from "@/assets/portrait/coo-portrait.jpg";
+import ceoPortrait from "@/assets/ceo-portrait.jpg";
+import cooPortrait from "@/assets/coo-portrait.jpg";
 
 const About = () => {
   return (

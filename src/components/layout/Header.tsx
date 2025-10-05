@@ -1,3 +1,4 @@
+// src/components/layout/Header.tsx
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -14,7 +15,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
@@ -26,73 +27,64 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const solutionsLinks = [
-    { name: "Data Center Solutions", href: "/solutions/data-center" },
-    { name: "Cloud Solutions", href: "/solutions/cloud" },
-    { name: "Enterprise Data Protection", href: "/solutions/data-protection" },
-    { name: "Converged / Hyperconverged Systems", href: "/solutions/converged-systems" },
-    { name: "Storage Solutions", href: "/solutions/storage" },
-    { name: "Networking Security", href: "/solutions/networking-security" },
-    { name: "Application & Data Migration", href: "/solutions/migration" },
-    { name: "Business Continuity & DR Consulting", href: "/solutions/bcdr" },
-    { name: "Deployment & Maintenance", href: "/solutions/deployment" },
-    { name: "EDR / XDR / NDR", href: "/solutions/edr-xdr-ndr" },
-  ];
+//import { Menu } from "lucide-react";
 
-  const technologyLinks = [
-    { name: "Identity Management", href: "/technologies/identity-management" },
-    { name: "Threat Intelligence Management", href: "/technologies/threat-intelligence" },
-    { name: "Security Operations Centre", href: "/technologies/soc" },
-    { name: "Network Operations Center", href: "/technologies/noc" },
-    { name: "Hybrid IT Management", href: "/technologies/hybrid-it" },
-  ];
+  const solutionsLinks = t("nav.solutionsLinks", { returnObjects: true }) as { name: string; href: string }[];
+  const technologyLinks = t("nav.technologyLinks", { returnObjects: true }) as { name: string; href: string }[];
+
+  // ── Shared pill classes to keep everything consistent in light & dark
+  const pillBase =
+    "group inline-flex h-10 items-center justify-center rounded-xl px-5 text-sm font-medium transition-colors " +
+    "text-foreground/90 bg-transparent " +
+    "hover:bg-muted hover:text-foreground " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background " +
+    "disabled:pointer-events-none disabled:opacity-50 dark:hover:bg-white/10";
+
+  const pillActive = "bg-accent text-accent-foreground dark:bg-white/10 dark:text-white";
+
+  // NavigationMenuTrigger supports data-state=open
+  const triggerPill = `${pillBase} data-[state=open]:bg-muted data-[state=open]:text-foreground dark:data-[state=open]:bg-white/10`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-mine-shaft/95 dark:bg-mine-shaft backdrop-blur supports-[backdrop-filter]:bg-mine-shaft/95">
+    <header
+      className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60
+                 dark:bg-neutral-900/70 dark:supports-[backdrop-filter]:bg-neutral-900/60"
+    >
       <div className="container-width">
         <div className="flex h-16 items-center justify-between px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Lion Heart Computer System" className="h-10 w-auto logo-pulse hover:scale-110 transition-transform duration-300" />
+            <img src={logo} alt="Lion Heart Computer System" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList>
+            <NavigationMenuList className="gap-2">
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
-                    isActive("/") ? "bg-accent text-accent-foreground" : ""
-                  }`}
-                >
+                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/") ? pillActive : ""}`}>
                   <Link to="/">{t('nav.home')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
+
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
-                    isActive("/about") ? "bg-accent text-accent-foreground" : ""
-                  }`}
-                >
+                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/about") ? pillActive : ""}`}>
                   <Link to="/about">{t('nav.about')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
+
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
-                  {t('nav.solutions')}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2 bg-background">
+                <NavigationMenuTrigger className={triggerPill}>{t('nav.solutions')}</NavigationMenuTrigger>
+                <NavigationMenuContent className="rounded-xl border bg-popover shadow-md dark:border-white/10 dark:bg-neutral-900">
+                  <ul className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
                     {solutionsLinks.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <Link
                             to={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground text-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors
+                                       hover:bg-muted hover:text-foreground dark:hover:bg-white/10"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </Link>
@@ -104,17 +96,16 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-spring-wood hover:bg-primary/20 hover:text-primary data-[state=open]:bg-accent data-[state=open]:text-accent-foreground">
-                  {t('nav.technologies')}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 bg-background">
+                <NavigationMenuTrigger className={triggerPill}>{t('nav.technologies')}</NavigationMenuTrigger>
+                <NavigationMenuContent className="rounded-xl border bg-popover shadow-md dark:border-white/10 dark:bg-neutral-900">
+                  <ul className="grid w-[400px] gap-3 p-4">
                     {technologyLinks.map((item) => (
                       <li key={item.name}>
                         <NavigationMenuLink asChild>
                           <Link
                             to={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground text-foreground"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors
+                                       hover:bg-muted hover:text-foreground dark:hover:bg-white/10"
                           >
                             <div className="text-sm font-medium leading-none">{item.name}</div>
                           </Link>
@@ -126,50 +117,34 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
-                    isActive("/vendors") ? "bg-accent text-accent-foreground" : ""
-                  }`}
-                >
+                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/about") ? pillActive : ""}`}>
                   <Link to="/vendors">{t('nav.vendors')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink
-                  asChild
-                   className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors text-spring-wood hover:bg-primary/20 hover:text-primary focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
-                    isActive("/contact") ? "bg-accent text-accent-foreground" : ""
-                  }`}
-                >
-                  <Link to="/contact">{t('nav.contact')}</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* CTA Button & Theme/Language Switcher - Desktop */}
+          {/* CTA Button & Theme Switcher - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher />
             <ThemeSwitcher />
             <Button asChild className="btn-hero">
-              <Link to="/contact">{t('nav.consultation')}</Link>
+              {/*<Link to="/contact">Contact Us</Link>*/}
+              <Link to="/contact">{t('nav.contact')}</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="sm" className="lg:hidden">
+              <Button variant="outline" size="sm" className="lg:hidden rounded-full">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
+
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col space-y-4">
-                <div className="flex gap-2 mb-4">
-                  <LanguageSwitcher />
-                </div>
                 <Link
                   to="/"
                   onClick={() => setIsOpen(false)}
@@ -177,6 +152,7 @@ const Header = () => {
                 >
                   {t('nav.home')}
                 </Link>
+
                 <Link
                   to="/about"
                   onClick={() => setIsOpen(false)}
@@ -188,7 +164,7 @@ const Header = () => {
                 <Collapsible open={solutionsOpen} onOpenChange={setSolutionsOpen}>
                   <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-medium hover:text-primary transition-colors">
                     {t('nav.solutions')}
-                    <ChevronDown className="h-4 w-4" />
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2"/></svg>
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-2 pt-2">
                     {solutionsLinks.map((item) => (
@@ -207,7 +183,7 @@ const Header = () => {
                 <Collapsible open={techOpen} onOpenChange={setTechOpen}>
                   <CollapsibleTrigger className="flex items-center justify-between w-full text-lg font-medium hover:text-primary transition-colors">
                     {t('nav.technologies')}
-                    <ChevronDown className="h-4 w-4" />
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2"/></svg>
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-2 pt-2">
                     {technologyLinks.map((item) => (
@@ -230,17 +206,10 @@ const Header = () => {
                 >
                   {t('nav.vendors')}
                 </Link>
-                <Link
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium hover:text-primary transition-colors"
-                >
-                  {t('nav.contact')}
-                </Link>
 
                 <Button asChild className="btn-hero w-full mt-6">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    {t('nav.consultation')}
+                    {t('nav.contact')}
                   </Link>
                 </Button>
               </nav>

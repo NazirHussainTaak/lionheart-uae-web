@@ -1,213 +1,226 @@
 {
-  "nav": {
+"nav": {
     "home": "Home",
     "about": "About Us",
     "solutions": "Solutions",
     "technologies": "Technologies",
     "vendors": "Vendors",
     "contact": "Contact Us",
-    "consultation": "Get a Consultation"
+    "consultation": "Get a Consultation",
+    "solutionsLinks": [
+      { "name": "Data Center Solutions", "href": "/solutions/data-center" },
+      { "name": "Cloud Solutions", "href": "/solutions/cloud" },
+      { "name": "Enterprise Data Protection", "href": "/solutions/data-protection" },
+      { "name": "Converged / Hyperconverged Systems", "href": "/solutions/converged-systems" },
+      { "name": "Storage Solutions", "href": "/solutions/storage" },
+      { "name": "Networking Security", "href": "/solutions/networking-security" },
+      { "name": "Application & Data Migration", "href": "/solutions/migration" },
+      { "name": "Business Continuity & DR Consulting", "href": "/solutions/bcdr" },
+      { "name": "Deployment & Maintenance", "href": "/solutions/deployment" },
+      { "name": "EDR / XDR / NDR", "href": "/solutions/edr-xdr-ndr" }
+    ],
+    "technologyLinks": [
+      { "name": "Identity Management", "href": "/technologies/identity-management" },
+      { "name": "Threat Intelligence Management", "href": "/technologies/threat-intelligence" },
+      { "name": "Security Operations Centre", "href": "/technologies/soc" },
+      { "name": "Network Operations Center", "href": "/technologies/noc" },
+      { "name": "Hybrid IT Management", "href": "/technologies/hybrid-it" }
+    ]
   },
+
   "hero": {
-    "title": "Transforming IT Infrastructure with Expertise & Innovation",
-    "subtitle": "Your Trusted Technology Partner in the Middle East",
+    "headline": {
+      "prefix": "Defend Your Network And Company With ",
+      "highlight": "The Best and trusted",
+      "suffix": " Protection Tools."
+    },
+
     "description": "We deliver cutting-edge IT solutions powered by world-class vendors and managed by industry-certified professionals.",
-    "cta": "Explore Solutions",
-    "ctaSecondary": "Contact Us"
+    "stats": [
+      { "value": "99.98%", "label": "Managed Uptime" },
+      { "value": "24/7", "label": "SOC/NOC Support" },
+      { "value": "UAE", "label": "Based Team" }
+    ]
   },
+
   "valuePillars": {
-    "title": "Our Value Pillars",
-    "subtitle": "What Makes Us Your Ideal Technology Partner",
-    "partnership": {
-      "title": "Partnership Excellence",
-      "description": "Authorized partnerships with leading global technology vendors"
+  "title": "Why Enterprise Leaders Choose Lion Heart",
+  "subtitle": "Bold like a lion, precise like an engineer. We deliver enterprise-grade solutions.",
+  "items": [
+    {
+      "id": "approach",
+      "icon": "Crosshair",
+      "title": "Our Approach",
+      "description": "We ensure you have all the tools you need for today and tomorrow, so you can focus on growing your business."
     },
-    "expertise": {
-      "title": "Certified Expertise",
-      "description": "Team of industry-certified professionals with proven track records"
+    {
+      "id": "values",
+      "icon": "Lightbulb",
+      "title": "Our Values",
+      "description": "We tailor our services to your specific business needs to take your company to the next level."
     },
-    "solutions": {
-      "title": "End-to-End Solutions",
-      "description": "Complete lifecycle support from consulting to deployment and maintenance"
-    },
-    "innovation": {
-      "title": "Innovation Focus",
-      "description": "Staying ahead with latest technologies and industry best practices"
-    }
-  },
-  "technologies": {
-    "title": "Core Technologies & Services",
-    "subtitle": "Comprehensive Security & IT Management Solutions",
-    "identity": {
-      "title": "Identity Management",
-      "description": "Comprehensive identity and access management solutions"
-    },
-    "threat": {
-      "title": "Threat Intelligence Management",
-      "description": "Advanced threat detection and intelligence systems"
-    },
-    "soc": {
-      "title": "Security Operations Centre",
-      "description": "24/7 security monitoring and incident response"
-    },
-    "noc": {
-      "title": "Network Operations Center",
-      "description": "Proactive network monitoring and management"
-    },
-    "hybrid": {
-      "title": "Hybrid IT Management",
-      "description": "Seamless integration of on-premise and cloud infrastructure"
-    },
-    "learnMore": "Learn More"
-  },
-  "leadership": {
-    "title": "Our Leadership Team",
-    "subtitle": "Experienced Professionals Driving Excellence",
-    "ceo": {
-      "name": "CEO & Founder",
-      "bio": "With over 20 years of experience in IT infrastructure and enterprise solutions, our CEO leads Lion Heart with a vision of innovation and excellence."
-    },
-    "coo": {
-      "name": "Chief Operating Officer",
-      "bio": "Expert in operational efficiency and strategic partnerships, driving our commitment to delivering world-class IT solutions across the Middle East."
-    }
-  },
-  "about": {
-    "breadcrumb": "About Us",
-    "hero": {
-      "title": "Trusted Technology Partner in the Middle East",
-      "description": "Lion Heart Computer System is a leading provider of comprehensive IT infrastructure solutions, serving enterprises across the Middle East with cutting-edge technology and expert consultation."
-    },
-    "mission": {
-      "title": "Our Mission",
-      "description": "To empower businesses with reliable, scalable, and innovative IT infrastructure solutions that drive digital transformation and operational excellence."
-    },
-    "vision": {
+    {
+      "id": "vision",
+      "icon": "Eye",
       "title": "Our Vision",
-      "description": "To be the most trusted technology partner in the Middle East, known for delivering exceptional value through expertise, innovation, and customer-centric solutions."
+      "description": "With a focus on Cybersecurity and Cloud, plus integrated BI, we aim to reshape the distribution landscape."
     },
-    "values": {
-      "title": "Our Core Values",
-      "excellence": {
-        "title": "Excellence",
-        "description": "We pursue excellence in every solution we deliver"
+    {
+      "id": "support",
+      "icon": "Headphones",
+      "title": "Our Support",
+      "description": "Our skilled team ensures your IT infrastructure meets your company’s needs across all sectors."
+    }
+  ]
+},
+
+  "aboutSection": {
+    "tagline": "About Us",
+    "heading": "Your Optimal Technology Partner To Grow Your Business",
+    "intro": "At LionHeart Computer Systems, we build and maintain secure networks and systems so you can manage and share critical information with ease. We empower partners, vendors, and customers to achieve their objectives by identifying gaps in cybersecurity and IT infrastructure and designing integrated, holistic solutions.",
+    "ctaLabel": "Read More",
+    "ceo": {
+      "name": "NAIM A. TASKIN",
+      "title": "Chief Executive Officer",
+      "bio": "A visionary business leader with over 35 years of industry experience. Known for driving organizational growth, spearheading strategic initiatives, and building high-performing teams. Recognized for balancing innovation with operational excellence while maintaining a people-first leadership approach.",
+      "videoHeading": "Message from our CEO",
+      "videoUrl": "https://www.youtube.com/embed/i8A6FE481W8?si=LNTAD93U0mXgeeXT",
+      "videoTitle": "Message from CEO"
+    }
+  },
+
+
+"solutionsSection": {
+    "tagline": "Our Solutions",
+    "heading": "Solutions & Focus Areas",
+    "intro": "The LionHeart portfolio of niche technology provides unique solutions across various domains to address your IT infrastructure and cybersecurity challenges.",
+    "ctaAll": "All Solutions",
+    "items": [
+      { "id": "data-center", "icon": "Server", "name": "Data Center Solutions", "href": "/solutions/data-center", "description": "Software-defined data centers run workloads on-premises or in the cloud as needed. We cover servers, routers, storage, firewalls, and supporting infrastructure." },
+      { "id": "cloud", "icon": "Cloud", "name": "Cloud Solutions", "href": "/solutions/cloud", "description": "On-demand access to shared resources that reduces costs, improves efficiency, and helps balance capex and opex." },
+      { "id": "data-protection", "icon": "Shield", "name": "Enterprise Data Protection", "href": "/solutions/data-protection", "description": "Policies, standards, and controls tailored to the sensitivity and criticality of your data across its lifecycle." },
+      { "id": "networking-security", "icon": "Network", "name": "Network Security", "href": "/solutions/networking-security", "description": "Prevent breaches and enable operations with secure access to systems, apps, and data—without slowing the business." },
+      { "id": "storage", "icon": "Database", "name": "Storage Solutions", "href": "/solutions/storage", "description": "Efficient storage with strong protection and governance so you can make confident, data-driven decisions." },
+      { "id": "converged", "icon": "Layers", "name": "Converged / Hyper-Converged", "href": "/solutions/converged-systems", "description": "Integrated systems that boost efficiency and simplify ops through automated management software." },
+      { "id": "migration", "icon": "ArrowRightLeft", "name": "Application & Data Migration", "href": "/solutions/migration", "description": "Move from on-prem to cloud (or between clouds) with zero-downtime approaches and tight cost control." },
+      { "id": "bcdr", "icon": "RefreshCw", "name": "Business Continuity & DR", "href": "/solutions/bcdr", "description": "Resilient backup, recovery, and continuity architectures that keep you operating during incidents." },
+      { "id": "deployment", "icon": "Settings", "name": "Deployment & Maintenance", "href": "/solutions/deployment", "description": "Well-deployed and well-maintained servers, storage, and networks reduce risk and downtime." },
+      { "id": "edr-xdr-ndr", "icon": "Eye", "name": "EDR / XDR / NDR", "href": "/solutions/edr-xdr-ndr", "description": "End-to-end threat detection and response with continuous monitoring and rapid remediation." }
+    ]
+  },
+
+  "technologiesSection": {
+    "tagline": "Our Technologies",
+    "heading": "Core Technologies & Services",
+    "learnMore": "Learn More",
+    "items": [
+      {
+        "id": "identity",
+        "name": "Identity Management",
+        "href": "/technologies/identity-management",
+        "description": "Comprehensive identity and access management that streamlines governance and improves security."
       },
-      "integrity": {
-        "title": "Integrity",
-        "description": "We operate with transparency and honesty"
+      {
+        "id": "threat",
+        "name": "Threat Intelligence Management",
+        "href": "/technologies/threat-intelligence",
+        "description": "Advanced threat detection and intelligence with integrated sources and automated correlation."
       },
-      "innovation": {
-        "title": "Innovation",
-        "description": "We embrace new technologies and methodologies"
+      {
+        "id": "hybrid",
+        "name": "Hybrid IT Management",
+        "href": "/technologies/hybrid-it",
+        "description": "Unified operations across on-prem and cloud to simplify management and reduce cost."
       },
-      "partnership": {
-        "title": "Partnership",
-        "description": "We build long-term relationships based on trust"
+      {
+        "id": "soc",
+        "name": "Security Operations Centre",
+        "href": "/technologies/soc",
+        "description": "24/7 monitoring and incident response to contain threats and reduce impact."
+      },
+      {
+        "id": "noc",
+        "name": "Network Operations Center",
+        "href": "/technologies/noc",
+        "description": "Proactive network monitoring and remediation for resilient performance."
       }
-    },
-    "expertise": {
-      "title": "Our Expertise",
-      "description": "With industry-certified professionals and authorized partnerships with global technology leaders, we deliver comprehensive IT solutions across multiple domains:",
-      "domains": [
-        "Data Center Infrastructure",
-        "Cloud Solutions & Migration",
-        "Cybersecurity & Compliance",
-        "Network Architecture",
-        "Storage & Backup Solutions",
-        "IT Operations Management"
-      ]
-    },
-    "cta": {
-      "title": "Ready to Transform Your IT Infrastructure?",
-      "button": "Get Started Today"
-    }
+    ]
   },
-  "vendors": {
-    "breadcrumb": "Vendors",
-    "hero": {
-      "title": "Technology Partnerships",
-      "description": "We partner with industry-leading vendors to deliver best-in-class solutions"
-    },
-    "filter": {
-      "all": "All Vendors",
-      "strategic": "Strategic Partners",
-      "premier": "Premier Partners",
-      "gold": "Gold Partners",
-      "technology": "Technology Partners"
-    },
-    "tiers": {
-      "strategic": "Strategic Partner",
-      "premier": "Premier Partner",
-      "gold": "Gold Partner",
-      "technology": "Technology Partner"
-    },
-    "visitSite": "Visit Site",
-    "inquire": "Inquire About"
+
+  "testimonials": {
+    "heading": "What Clients Say About Us",
+    "subheading": "Real experiences from our clients showcasing the impact of our solutions.",
+    "badge": "Customer Case",
+    "bannerAlt": "{{company}} banner",
+    "avatarAlt": "Logo or representative of {{company}}",
+    "items": [
+      { "id": "macoma", "quote": "We approached Mr. Naim with the idea of implementing a sales tracking platform in our organization and he went beyond to satisfy all our requirements. A tracking platform was my request and I walked away with a complete CRM system. It helps us digitalize our company's operations like systematic Sales Order Processing through different stakeholders, Payment Receipt Workflow, KYC for customers, reporting and so on. Overall, reaching out to Mr. Naim made a significant impact on our business.", "company": "Macoma Group", "location": "Dubai, Ajman, Kuwait, Muscat, Mumbai, China" },
+      { "id": "al-noor", "quote": "Lion Heart Computer System streamlined our IT infrastructure and gave us peace of mind. Their proactive support keeps our operations running smoothly every day.", "company": "Al Noor Trading", "location": "Abu Dhabi, U.A.E" },
+      { "id": "bluewave", "quote": "The team delivered a custom ERP solution that transformed the way we manage resources. We highly recommend them for their expertise and dedication.", "company": "BlueWave Industries", "location": "Sharjah, U.A.E" }
+    ]
   },
-  "contact": {
-    "breadcrumb": "Contact Us",
-    "hero": {
-      "title": "Get in Touch",
-      "description": "Have a question or need assistance? We're here to help."
-    },
-    "vendorInquiry": "You're inquiring about solutions from",
-    "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "company": "Company Name",
-      "message": "Your Message",
-      "messagePlaceholder": "Tell us about your requirements...",
-      "vendorMessagePlaceholder": "I'm interested in learning more about {{vendor}} solutions...",
-      "submit": "Send Message",
-      "sending": "Sending..."
-    },
-    "info": {
-      "title": "Contact Information",
-      "address": {
-        "title": "Address",
-        "line1": "Bank Melli Iran Building, 2nd Floor",
-        "line2": "Office No. 11, Khaled Bin Waleed Street",
-        "line3": "P.O. Box 99927, Dubai, U.A.E"
-      },
-      "phone": "Phone",
-      "email": "Email",
-      "hours": {
-        "title": "Business Hours",
-        "days": "Sunday - Thursday",
-        "time": "9:00 AM - 6:00 PM GST"
-      }
-    },
-    "map": {
-      "title": "Our Location",
-      "openInMaps": "Open in Google Maps"
-    }
+
+  "leadership": {
+    "heading": "Meet Our Leadership",
+    "subheading": "Experienced leaders dedicated to your success.",
+    "items": [
+      { "id": "ceo", "name": "Naim Taskin", "title": "Chief Executive Officer", "email": "naim@lionheartuae.com", "phone": "+971 55 558 9672", "blurb": "Naim guides strategy and partnerships, aligning technology with business outcomes." },
+      { "id": "coo", "name": "Dr. Aliasgar Taskin", "title": "Chief Operating Officer", "email": "aliasgar@lionheartuae.com", "phone": "+971 50 807 2786", "blurb": "Dr Aliasgar leads delivery excellence across cloud, security, and operations." },
+      { "id": "cto", "name": "Omar Rahman", "title": "Chief Technical Officer", "email": "omar@lionheartuae.com", "phone": "+971 52 345 7890", "blurb": "Omar drives technology innovation and oversees product engineering." },
+      { "id": "sales", "name": "Aisha Kareem", "title": "Head of Sales", "email": "aisha@lionheartuae.com", "phone": "+971 54 678 4321", "blurb": "Aisha leads the sales organization, focusing on customer relationships and growth." }
+    ]
   },
-  "footer": {
-    "description": "Delivering comprehensive IT infrastructure solutions across the Middle East.",
-    "quickLinks": "Quick Links",
-    "services": "Services",
-    "technologies": "Technologies",
-    "contact": "Contact Us",
-    "subscribe": {
-      "title": "Stay Updated",
-      "description": "Subscribe to our newsletter for the latest updates",
-      "placeholder": "Enter your email",
-      "button": "Subscribe"
-    },
-    "rights": "All rights reserved.",
-    "solutions": {
-      "dataCenter": "Data Center Solutions",
-      "cloud": "Cloud Solutions",
-      "dataProtection": "Data Protection",
-      "networking": "Networking Security"
-    }
-  },
+
   "common": {
     "readMore": "Read More",
     "learnMore": "Learn More",
     "getStarted": "Get Started",
     "contactUs": "Contact Us",
     "loading": "Loading..."
+  },
+  "footer": {
+    "description": "The Lion Heart Computer System team is here to help you get the most out of IT. You can count on Lion Heart to keep your business running smoothly. Contact us for all your IT needs.",
+    "quickLinksTitle": "Quick Links",
+    "quickLinksItems": [
+      { "name": "Home", "href": "/" },
+      { "name": "Solutions", "href": "/solutions/data-center" },
+      { "name": "Technologies", "href": "/technologies/identity-management" },
+      { "name": "Vendors", "href": "/vendors" }
+    ],
+    "contactTitle": "Contact Information",
+    "addressTitle": "Address",
+    "address": {
+      "line1": "Bank Melli Iran Building, 2nd Floor",
+      "line2": "Office No. 11, Khaled Bin Waleed Street",
+      "line3": "P.O. Box 99927, Dubai, U.A.E"
+    },
+    "hoursTitle": "Business Hours",
+    "hours": {
+      "days": "Monday–Friday",
+      "time": "9 AM–6 PM GST"
+    },
+    "ctaContact": "Contact Us",
+    "subscribe": {
+      "title": "Subscribe",
+      "description": "Get the latest updates and offers from Lion Heart.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "note": "We’ll send occasional updates. Unsubscribe anytime."
+    },
+    "contact": {
+      "city": "Dubai, U.A.E",
+      "phone": "+971 55 558 9672",
+      "email": "naim@lionheartuae.com"
+    },
+    "bottomLinks": [
+      { "name": "About Us", "href": "/about" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Partners", "href": "/vendors" },
+      { "name": "Privacy", "href": "/privacy" }
+    ],
+    "rights": "All rights reserved."
   }
 }
+
+
+
