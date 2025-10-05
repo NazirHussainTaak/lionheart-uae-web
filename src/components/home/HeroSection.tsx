@@ -1,60 +1,41 @@
-// src/pages/home/sections/HeroSection.tsx
-import React from "react";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/Lion.png";
-import loopGif from "@/assets/showcase/loop.gif";
+import heroImage from "@/assets/hero-datacenter.jpg";
 
-const stats = [
-  { value: "99.98%", label: "Managed Uptime" },
-  { value: "24/7", label: "SOC/NOC Support" },
-  { value: "UAE", label: "Based Team" },
-];
-
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
   const { t } = useTranslation();
-  const stats = t("hero.stats", { returnObjects: true }) as { value: string; label: string }[];
+  
+  const stats = [
+    { value: "99.98%", label: "Managed Uptime" },
+    { value: "24/7", label: "SOC/NOC Support" },
+    { value: "UAE", label: "Based Team" },
+  ];
 
   return (
-    <section className=" relative section-padding overflow-hidden hero-pattern lion-geometric bg-spring-wood dark:bg-neutral-950 " >
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden dark:block" >
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
+    <section className="relative hero-pattern lion-geometric-animated bg-spring-wood dark:bg-neutral-900 section-padding overflow-hidden">
       <div className="container-width">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative space-y-8">
-            <img
-              src={loopGif}
-              alt="Animated background"
-              className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
-            />
-
-          <div className="relative z-10">
-              
-           <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground"
-            >
-              {t('hero.headline.prefix')}{" "}
-              <span className="text-gradient">{t('hero.headline.highlight')}{" "}</span>
-              {t('hero.headline.suffix')}
-            </motion.h1>
-
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
-            >
-              {t('hero.description')}
-            </motion.p>
-
+          <div className="space-y-8">
+            <div>
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground"
+              >
+                {t('hero.title')}
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
+              >
+                {t('hero.description')}
+              </motion.p>
+            </div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -64,12 +45,16 @@ const HeroSection: React.FC = () => {
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button asChild className="btn-hero">
-                  <Link to="/contact">{t('nav.contact')}</Link>
+                  <Link to="/contact">{t('hero.cta')}</Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button asChild className="btn-secondary">
+                  <Link to="/solutions/data-center">{t('hero.ctaSecondary')}</Link>
                 </Button>
               </motion.div>
             </motion.div>
 
-            
             {/* Trust Bar */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -90,10 +75,8 @@ const HeroSection: React.FC = () => {
                 </motion.div>
               ))}
             </motion.div>
-            </div>
           </div>
 
-          {/* Hero Image Banner */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -109,7 +92,6 @@ const HeroSection: React.FC = () => {
               className="rounded-2xl shadow-hero w-full h-[600px] object-cover"
             />
           </motion.div>
-
         </div>
       </div>
     </section>
