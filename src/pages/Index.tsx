@@ -10,8 +10,8 @@ import LeadershipSection from "@/pages/home/07-LeadershipSection";
 // import ValuePillarsSection from "@/components/home/ValuePillarsSection";
 // import TechnologiesSection from "@/components/home/TechnologiesSection";
 // import LeadershipSection from "@/components/home/LeadershipSection";
-// import AnimatedSection from "@/components/AnimatedSection";
-// import SEOHead from "@/components/SEOHead";
+ import AnimatedSection from "@/components/AnimatedSection";
+ import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (
