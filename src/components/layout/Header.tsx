@@ -53,7 +53,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Lion Heart Computer System" className="h-10 w-auto" />
+            <img src={logo} alt="Lion Heart Computer System" className="h-10 w-auto logo-pulse hover:scale-110 transition-transform duration-300" />
           </Link>
 
           {/* Desktop Navigation */}

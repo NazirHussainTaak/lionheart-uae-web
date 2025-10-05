@@ -3,10 +3,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLanguageDetection } from "@/hooks/useLanguageDetection";
 import Layout from "./components/layout/Layout";
+import LionBot from "@/components/LionBot";
+import Preloader from "@/components/Preloader";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -37,6 +41,7 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const { i18n } = useTranslation();
+  useLanguageDetection();
 
   useEffect(() => {
     const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
@@ -46,6 +51,8 @@ const AppContent = () => {
 
   return (
     <BrowserRouter>
+      <Preloader />
+      <LionBot />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Index />} />
@@ -81,15 +88,17 @@ const AppContent = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <AppContent />
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AppContent />
+        </TooltipProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
