@@ -13,9 +13,10 @@ const Index = () => {
       <div className="min-h-screen">
         <HeroSection />
         {/* <AnimatedSection animation="fade-slide"> */}
-          <ValuePillarsSection />
+        {/*<ValuePillarsSection />*/}
         {/* </AnimatedSection> */}
-{/*        <AnimatedSection animation="fade-slide" delay={0.2}>
+        {/*     
+          <AnimatedSection animation="fade-slide" delay={0.2}>
           <TechnologiesSection />
         </AnimatedSection>
         <AnimatedSection animation="fade-slide" delay={0.3}>
