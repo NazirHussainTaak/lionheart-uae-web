@@ -26,6 +26,13 @@ const Index = () => {
         <AnimatedSection animation="fade-slide"> 
           <ValuePillarsSection />
         </AnimatedSection> 
+
+      <AboutUsSection />
+      <SolutionsSection />
+      <TechnologiesSection />
+      <TestimonialsSection />
+      <LeadershipSection />
+
         {/* <AnimatedSection animation="fade-slide"> */}
         {/*<ValuePillarsSection />*/}
         {/* </AnimatedSection> */}
