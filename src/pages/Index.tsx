@@ -1,5 +1,5 @@
-import HeroSection from "@/components/home/HeroSection";
-//import HeroSection from "@/pages/home/01-HeroSection";
+//import HeroSection from "@/components/home/HeroSection";
+import HeroSection from "@/pages/home/01-HeroSection";
 import ValuePillarsSection from "@/components/home/ValuePillarsSection";
 import TechnologiesSection from "@/components/home/TechnologiesSection";
 import LeadershipSection from "@/components/home/LeadershipSection";
