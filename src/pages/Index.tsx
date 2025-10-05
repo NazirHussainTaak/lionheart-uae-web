@@ -1,5 +1,5 @@
 //import HeroSection from "@/components/home/HeroSection";
-import HeroSection from "@/pages/home/01-HeroSection";import HeroSection from "@/pages/home/01-HeroSection";
+import HeroSection from "@/pages/home/01-HeroSection";
 import ValuePillarsSection from "@/pages/home/02-ValuePillarsSection";
 import AboutUsSection from "@/pages/home/03-AboutUsSection";
 import SolutionsSection from "@/pages/home/04-SolutionsSection";
