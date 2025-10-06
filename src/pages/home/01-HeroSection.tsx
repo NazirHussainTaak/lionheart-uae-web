@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6 text-foreground"
             >
-              {t('hero.headline.prefix')}
+              {t('hero.headline.prefix')} Hello World
               <span className="text-gradient">{t('hero.headline.highlight')}{" "}</span>
               {t('hero.headline.suffix')}
             </motion.h1>
