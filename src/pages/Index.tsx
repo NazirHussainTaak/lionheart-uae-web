@@ -7,16 +7,13 @@ import TechnologiesSection from "@/pages/home/05-TechnologiesSection";
 import TestimonialsSection from "@/pages/home/06-TestimonialsSection";
 import LeadershipSection from "@/pages/home/07-LeadershipSection";
 
-// import ValuePillarsSection from "@/components/home/ValuePillarsSection";
-// import TechnologiesSection from "@/components/home/TechnologiesSection";
-// import LeadershipSection from "@/components/home/LeadershipSection";
- import AnimatedSection from "@/components/AnimatedSection";
- import SEOHead from "@/components/SEOHead";
+import AnimatedSection from "@/components/AnimatedSection";
+import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
   return (
     <>
-      {/* <SEOHead /> */}
+      <SEOHead /> 
       <div className="min-h-screen">
 
         <AnimatedSection animation="fade-slide"> 
@@ -27,34 +24,26 @@ const Index = () => {
           <ValuePillarsSection />
         </AnimatedSection> 
 
-<AnimatedSection animation="fade-slide"> 
-      <AboutUsSection />
-</AnimatedSection> 
+        <AnimatedSection animation="fade-slide"> 
+              <AboutUsSection />
+        </AnimatedSection> 
 
-      <AnimatedSection animation="fade-slide"> 
-      <SolutionsSection />
-</AnimatedSection> 
+        <AnimatedSection animation="fade-slide"> 
+              <SolutionsSection />
+        </AnimatedSection> 
 
-      <AnimatedSection animation="fade-slide"> 
-      <TechnologiesSection />
-</AnimatedSection> 
+        <AnimatedSection animation="fade-slide"> 
+              <TechnologiesSection />
+        </AnimatedSection> 
 
-      <AnimatedSection animation="fade-slide"> 
-      <TestimonialsSection />
-</AnimatedSection> 
-      <AnimatedSection animation="fade-slide"> 
-      <LeadershipSection />
-</AnimatedSection> 
-        {/* <AnimatedSection animation="fade-slide"> */}
-        {/*<ValuePillarsSection />*/}
-        {/* </AnimatedSection> */}
-        {/*     
-          <AnimatedSection animation="fade-slide" delay={0.2}>
-          <TechnologiesSection />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-slide" delay={0.3}>
-          <LeadershipSection />
-        </AnimatedSection>*/}
+        <AnimatedSection animation="fade-slide"> 
+              <TestimonialsSection />
+        </AnimatedSection> 
+
+        <AnimatedSection animation="fade-slide"> 
+              <LeadershipSection />
+        </AnimatedSection> 
+
       </div>
     </>
   );
