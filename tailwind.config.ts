@@ -63,9 +63,33 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-        arabic: ['Cairo', 'system-ui', 'sans-serif'],
+        // sans: ['Inter', 'system-ui', 'sans-serif'],
+        // heading: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+
+        // --- Active (Space Grotesk for both body + headings) ---
+         sans: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+         heading: ['Space Grotesk', 'Poppins', 'Inter', 'system-ui', 'sans-serif'],
+
+        // --- Alternative 1: Orbitron (futuristic headings, clean body) ---
+        // sans: ['Inter', 'system-ui', 'sans-serif'], // keep body text clean
+       // heading: ['Orbitron', 'sans-serif'],
+
+
+        // --- Alternative 2: Rajdhani ---
+        // sans: ['Rajdhani', 'system-ui', 'sans-serif'],
+        // heading: ['Rajdhani', 'sans-serif'],
+
+        // --- Alternative 3: Exo 2 ---
+        // sans: ['Exo 2', 'system-ui', 'sans-serif'],
+        // heading: ['Exo 2', 'sans-serif'],
+
+        // --- Alternative 4: IBM Plex Sans ---
+        // sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        // heading: ['IBM Plex Sans', 'sans-serif'],
+
+        // --- Alternative 5: Montserrat ---
+        // sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        // heading: ['Montserrat', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',

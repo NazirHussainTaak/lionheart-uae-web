@@ -52,7 +52,7 @@ const AppContent = () => {
 
   return (
     <BrowserRouter>
-      <Preloader />
+      {/*<Preloader />*/}
       <LionBot />
       <Routes>
         <Route path="/" element={<Layout />}>
