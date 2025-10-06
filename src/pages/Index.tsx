@@ -27,12 +27,24 @@ const Index = () => {
           <ValuePillarsSection />
         </AnimatedSection> 
 
+<AnimatedSection animation="fade-slide"> 
       <AboutUsSection />
-      <SolutionsSection />
-      <TechnologiesSection />
-      <TestimonialsSection />
-      <LeadershipSection />
+</AnimatedSection> 
 
+      <AnimatedSection animation="fade-slide"> 
+      <SolutionsSection />
+</AnimatedSection> 
+
+      <AnimatedSection animation="fade-slide"> 
+      <TechnologiesSection />
+</AnimatedSection> 
+
+      <AnimatedSection animation="fade-slide"> 
+      <TestimonialsSection />
+</AnimatedSection> 
+      <AnimatedSection animation="fade-slide"> 
+      <LeadershipSection />
+</AnimatedSection> 
         {/* <AnimatedSection animation="fade-slide"> */}
         {/*<ValuePillarsSection />*/}
         {/* </AnimatedSection> */}
