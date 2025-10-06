@@ -17,16 +17,16 @@ import Contact from "./pages/Contact";
 import Vendors from "./pages/Vendors";
 
 // Solution Pages
-import DataCenter from "./pages/solutions/DataCenter";
-import Cloud from "./pages/solutions/Cloud";
-import DataProtection from "./pages/solutions/DataProtection";
-import ConvergedSystems from "./pages/solutions/ConvergedSystems";
-import Storage from "./pages/solutions/Storage";
-import NetworkingSecurity from "./pages/solutions/NetworkingSecurity";
-import Migration from "./pages/solutions/Migration";
-import BCDR from "./pages/solutions/BCDR";
-import Deployment from "./pages/solutions/Deployment";
-import EDRXDRNDR from "./pages/solutions/EDRXDRNDR";
+// import DataCenter from "./pages/solutions/DataCenter";
+// import Cloud from "./pages/solutions/Cloud";
+// import DataProtection from "./pages/solutions/DataProtection";
+// import ConvergedSystems from "./pages/solutions/ConvergedSystems";
+// import Storage from "./pages/solutions/Storage";
+// import NetworkingSecurity from "./pages/solutions/NetworkingSecurity";
+// import Migration from "./pages/solutions/Migration";
+// import BCDR from "./pages/solutions/BCDR";
+// import Deployment from "./pages/solutions/Deployment";
+// import EDRXDRNDR from "./pages/solutions/EDRXDRNDR";
 
 // Technology Pages
 // import IdentityManagement from "./pages/technologies/IdentityManagement";
@@ -34,6 +34,18 @@ import EDRXDRNDR from "./pages/solutions/EDRXDRNDR";
 // import SOC from "./pages/technologies/SOC";
 // import NOC from "./pages/technologies/NOC";
 // import HybridIT from "./pages/technologies/HybridIT";
+
+// Solution Pages
+import DataCenter from "./pages/solutions/01-DataCenter";
+import Cloud from "./pages/solutions/02-Cloud";
+import DataProtection from "./pages/solutions/03-DataProtection";
+import ConvergedSystems from "./pages/solutions/04-ConvergedSystems";
+import Storage from "./pages/solutions/05-Storage";
+import NetworkingSecurity from "./pages/solutions/06-NetworkingSecurity";
+import Migration from "./pages/solutions/07-Migration";
+import BCDR from "./pages/solutions/08-BCDR";
+import Deployment from "./pages/solutions/09-Deployment";
+import EDRXDRNDR from "./pages/solutions/10-EDRXDRNDR";
 
 // Technology Pages
 import IdentityManagement from "./pages/technologies/01-IdentityManagement";
