@@ -377,7 +377,6 @@ const ShowcaseUI: React.FC = () => {
                     toast({
                       title: "Saved",
                       description: "Your changes were stored.",
-                      icon: <Check className="h-4 w-4" />,
                     })
                   }
                 >
@@ -389,7 +388,6 @@ const ShowcaseUI: React.FC = () => {
                     toast({
                       title: "Welcome",
                       description: "Thanks for trying the UI showcase!",
-                      icon: <Smile className="h-4 w-4" />,
                     })
                   }
                 >
