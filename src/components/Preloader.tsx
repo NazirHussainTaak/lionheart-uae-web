@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import LionHeartSVG from "@/assets/LionHeartSVG.svg"; 
 
 const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +53,11 @@ const Preloader = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-3xl font-heading font-bold text-foreground mb-4"
             >
-              Lion Heart
+            <img
+              src={LionHeartSVG}
+              alt="Lion Heart Logo"
+              className="h-12 w-auto" // adjust size as needed
+            />
             </motion.h1>
 
             {/* Loading Bar */}
