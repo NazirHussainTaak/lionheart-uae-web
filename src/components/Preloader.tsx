@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LionHeartSVG from "@/assets/LionHeartSVG.svg"; 
+import LionLogoSVG from "@/assets/LionLogoSVG.svg"; 
 
 const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,7 +43,11 @@ const Preloader = () => {
                 }}
                 className="text-8xl"
               >
-                Hello 🦁 World
+            <img
+              src={LionLogoSVG}
+              alt="Lion Logo"
+              className="h-12 w-auto" // adjust size as needed
+            />
               </motion.div>
             </motion.div>
 
