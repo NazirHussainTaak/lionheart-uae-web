@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 interface Message {
   role: "user" | "assistant";
@@ -14,24 +15,34 @@ interface Message {
 
 const LionBot = () => {
   const { t, i18n } = useTranslation();
+  const { toast } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
       content: i18n.language === "ar" 
-        ? "مرحباً! أنا LionBot 🦁، مساعدك الذكي. كيف يمكنني مساعدتك اليوم؟"
-        : "Hello! I'm LionBot 🦁, your AI assistant. How can I help you today?"
+        ? "مرحباً! أنا LionBot 🦁، مساعدك الذكي المدعوم بالذكاء الاصطناعي. كيف يمكنني مساعدتك اليوم؟"
+        : "Hello! I'm LionBot 🦁, your AI-powered assistant. How can I help you today?"
     }
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   const quickActions = [
     {
@@ -51,83 +62,137 @@ const LionBot = () => {
     }
   ];
 
-  const getAIResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
-    const isArabic = i18n.language === "ar";
-
-    // Services detection
-    if (lowerMessage.includes("cloud") || lowerMessage.includes("سحابة")) {
-      return isArabic
-        ? "نحن نقدم حلول سحابية شاملة بما في ذلك الترحيل السحابي، الأمن السحابي، والبنية التحتية كخدمة. هل ترغب في معرفة المزيد عن أي خدمة محددة؟"
-        : "We offer comprehensive cloud solutions including cloud migration, cloud security, and Infrastructure as a Service. Would you like to know more about any specific service?";
-    }
-
-    if (lowerMessage.includes("storage") || lowerMessage.includes("تخزين")) {
-      return isArabic
-        ? "حلول التخزين لدينا تشمل SAN، NAS، والتخزين السحابي المختلط. نحن نعمل مع الشركات الرائدة مثل Dell EMC و HPE. هل تحتاج إلى استشارة حول سعة التخزين؟"
-        : "Our storage solutions include SAN, NAS, and hybrid cloud storage. We work with leading vendors like Dell EMC and HPE. Need consultation on storage capacity?";
-    }
-
-    if (lowerMessage.includes("security") || lowerMessage.includes("أمن") || lowerMessage.includes("أمان")) {
-      return isArabic
-        ? "نحن متخصصون في EDR/XDR/NDR، SOC، وإدارة الهويات. فريقنا يعمل على مدار الساعة لحماية البنية التحتية الخاصة بك. هل ترغب في تقييم أمني مجاني؟"
-        : "We specialize in EDR/XDR/NDR, SOC, and Identity Management. Our team works 24/7 to protect your infrastructure. Would you like a free security assessment?";
-    }
-
-    if (lowerMessage.includes("data center") || lowerMessage.includes("مركز بيانات")) {
-      return isArabic
-        ? "نوفر حلول مراكز البيانات الكاملة بما في ذلك التصميم والنشر والصيانة. نحن نعمل مع HPE، Dell، وCisco. هل تخطط لبناء أو تحديث مركز البيانات؟"
-        : "We provide complete data center solutions including design, deployment, and maintenance. We work with HPE, Dell, and Cisco. Are you planning to build or upgrade your data center?";
-    }
-
-    if (lowerMessage.includes("contact") || lowerMessage.includes("اتصال") || lowerMessage.includes("تواصل")) {
-      return isArabic
-        ? "يمكنك التواصل معنا عبر:\n📧 naim@lionheartuae.com\n📱 +971 55 558 9672\n⏰ الأحد-الخميس، 9 صباحاً - 6 مساءً بتوقيت الخليج\n📍 دبي، الإمارات العربية المتحدة"
-        : "You can reach us at:\n📧 naim@lionheartuae.com\n📱 +971 55 558 9672\n⏰ Sunday-Thursday, 9 AM-6 PM GST\n📍 Dubai, UAE";
-    }
-
-    if (lowerMessage.includes("quote") || lowerMessage.includes("price") || lowerMessage.includes("عرض") || lowerMessage.includes("سعر")) {
-      return isArabic
-        ? "بكل سرور! لإعداد عرض أسعار مخصص، يرجى زيارة صفحة الاتصال أو الاتصال بنا مباشرة. ما هي الخدمات التي تهمك؟"
-        : "I'd be happy to help! For a customized quote, please visit our Contact page or call us directly. What services are you interested in?";
-    }
-
-    if (lowerMessage.includes("meeting") || lowerMessage.includes("schedule") || lowerMessage.includes("اجتماع") || lowerMessage.includes("موعد")) {
-      return isArabic
-        ? "رائع! يمكنك جدولة اجتماع عن طريق:\n1. الاتصال بنا على +971 55 558 9672\n2. إرسال بريد إلكتروني إلى naim@lionheartuae.com\n3. زيارة صفحة الاتصال\n\nما هو الوقت المفضل لديك؟"
-        : "Great! You can schedule a meeting by:\n1. Calling us at +971 55 558 9672\n2. Emailing naim@lionheartuae.com\n3. Visiting our Contact page\n\nWhat time works best for you?";
-    }
-
-    // Default response
-    return isArabic
-      ? "شكراً على سؤالك! نحن متخصصون في حلول تكنولوجيا المعلومات للمؤسسات بما في ذلك مراكز البيانات، الأمن السيبراني، والحلول السحابية. هل يمكنك إخباري بالمزيد عن احتياجاتك المحددة؟"
-      : "Thank you for your question! We specialize in enterprise IT solutions including data centers, cybersecurity, and cloud solutions. Can you tell me more about your specific needs?";
-  };
-
-  const handleQuickAction = (message: string) => {
-    setMessages(prev => [...prev, { role: "user", content: message }]);
-    setIsTyping(true);
-
-    setTimeout(() => {
-      const response = getAIResponse(message);
-      setMessages(prev => [...prev, { role: "assistant", content: response }]);
-      setIsTyping(false);
-    }, 1000);
-  };
-
-  const handleSend = () => {
-    if (!input.trim()) return;
-
-    const userMessage = input.trim();
+  const streamAIResponse = async (userMessage: string) => {
+    const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-bot`;
+    
+    // Add user message
     setMessages(prev => [...prev, { role: "user", content: userMessage }]);
     setInput("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = getAIResponse(userMessage);
-      setMessages(prev => [...prev, { role: "assistant", content: response }]);
+    // Cancel any previous request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+
+    try {
+      const resp = await fetch(CHAT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ 
+          messages: [...messages, { role: "user", content: userMessage }],
+          language: i18n.language 
+        }),
+        signal: abortControllerRef.current.signal,
+      });
+
+      if (resp.status === 429) {
+        toast({
+          title: i18n.language === "ar" ? "تم تجاوز الحد" : "Rate Limit",
+          description: i18n.language === "ar" 
+            ? "الرجاء المحاولة مرة أخرى لاحقاً"
+            : "Please try again later",
+          variant: "destructive",
+        });
+        setIsTyping(false);
+        return;
+      }
+
+      if (resp.status === 402) {
+        toast({
+          title: i18n.language === "ar" ? "خدمة غير متاحة" : "Service Unavailable",
+          description: i18n.language === "ar" 
+            ? "الرجاء الاتصال بالدعم"
+            : "Please contact support",
+          variant: "destructive",
+        });
+        setIsTyping(false);
+        return;
+      }
+
+      if (!resp.ok || !resp.body) {
+        throw new Error("Failed to start stream");
+      }
+
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let textBuffer = "";
+      let streamDone = false;
+      let assistantMessage = "";
+
+      // Add empty assistant message
+      setMessages(prev => [...prev, { role: "assistant", content: "" }]);
+
+      while (!streamDone) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        textBuffer += decoder.decode(value, { stream: true });
+
+        let newlineIndex: number;
+        while ((newlineIndex = textBuffer.indexOf("\n")) !== -1) {
+          let line = textBuffer.slice(0, newlineIndex);
+          textBuffer = textBuffer.slice(newlineIndex + 1);
+
+          if (line.endsWith("\r")) line = line.slice(0, -1);
+          if (line.startsWith(":") || line.trim() === "") continue;
+          if (!line.startsWith("data: ")) continue;
+
+          const jsonStr = line.slice(6).trim();
+          if (jsonStr === "[DONE]") {
+            streamDone = true;
+            break;
+          }
+
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+            if (content) {
+              assistantMessage += content;
+              setMessages(prev => {
+                const newMessages = [...prev];
+                newMessages[newMessages.length - 1] = {
+                  role: "assistant",
+                  content: assistantMessage
+                };
+                return newMessages;
+              });
+            }
+          } catch {
+            textBuffer = line + "\n" + textBuffer;
+            break;
+          }
+        }
+      }
+
       setIsTyping(false);
-    }, 1000);
+    } catch (error: any) {
+      if (error.name === 'AbortError') {
+        console.log('Request aborted');
+        return;
+      }
+      console.error("Error streaming AI response:", error);
+      toast({
+        title: i18n.language === "ar" ? "خطأ" : "Error",
+        description: i18n.language === "ar" 
+          ? "فشل في الاتصال بالمساعد الذكي"
+          : "Failed to connect to AI assistant",
+        variant: "destructive",
+      });
+      setIsTyping(false);
+    }
+  };
+
+  const handleQuickAction = (message: string) => {
+    streamAIResponse(message);
+  };
+
+  const handleSend = () => {
+    if (!input.trim() || isTyping) return;
+    streamAIResponse(input.trim());
   };
 
   return (
