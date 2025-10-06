@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import LionHeartSVG from "@/assets/LionHeartSVG.svg"; 
-import LionLogoSVG from "@/assets/LionLogoSVG.svg"; 
+import LionHeartSVG from "@/assets/LionHeartSVG.svg";
+import LionLogoSVG from "@/assets/LionLogoSVG.svg";
 
 const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
+    const timer = setTimeout(() => setIsLoading(false), 1600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -20,68 +17,72 @@ const Preloader = () => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
+          transition={{ duration: 0.4 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center
+                     bg-background"
         >
-          <div className="text-center">
-            {/* Animated Logo */}
+          {/* subtle background flourish */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+            <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full
+                            blur-3xl bg-primary/10" />
+          </div>
+
+          <div
+            className="relative mx-auto w-full max-w-[420px] px-6 text-center"
+            role="status"
+            aria-live="polite"
+          >
+            {/* Animated Mark */}
             <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-8"
+              className="mb-6 flex items-center justify-center"
             >
               <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="text-8xl"
+                animate={{ scale: [1, 1.06, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="
+                  relative grid place-items-center rounded-3xl
+                  ring-1 ring-primary/15 bg-muted/30 dark:bg-white/5
+                  backdrop-blur-sm p-6"
               >
-            <img
-              src={LionLogoSVG}
-              alt="Lion Logo"
-              className="h-12 w-auto" // adjust size as needed
-            />
+                <img
+                  src={LionLogoSVG}
+                  alt="Lion mark"
+                  className="h-20 w-auto md:h-24 lg:h-28 object-contain"
+                  draggable={false}
+                />
               </motion.div>
             </motion.div>
 
-            {/* Brand Name */}
-            <motion.h1
-              initial={{ y: 20, opacity: 0 }}
+            {/* Wordmark */}
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-3xl font-heading font-bold text-foreground mb-4"
+              transition={{ delay: 0.2, duration: 0.45 }}
+              className="mb-4"
             >
-            <img
-              src={LionHeartSVG}
-              alt="Lion Heart Logo"
-              className="h-12 w-auto" // adjust size as needed
-            />
-            </motion.h1>
+              <img
+                src={LionHeartSVG}
+                alt="LionHeart"
+                className="h-6 w-auto md:h-7 lg:h-8 mx-auto object-contain"
+                draggable={false}
+              />
+            </motion.div>
 
-            {/* Loading Bar */}
+            {/* Loading bar */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 200, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="h-1 bg-muted rounded-full mx-auto overflow-hidden"
+              animate={{ width: 220, opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.45 }}
+              className="h-1.5 bg-muted rounded-full mx-auto overflow-hidden"
             >
               <motion.div
-                animate={{
-                  x: ["-100%", "100%"],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="h-full w-1/3 bg-gradient-to-r from-primary to-accent"
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+                className="h-full w-1/3 bg-gradient-to-r from-primary via-primary/70 to-accent"
               />
             </motion.div>
 
@@ -89,11 +90,22 @@ const Preloader = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-4 text-sm text-muted-foreground"
+              transition={{ delay: 0.7, duration: 0.4 }}
+              className="mt-4 text-xs md:text-sm text-muted-foreground"
             >
               Enterprise IT Solutions
             </motion.p>
+
+            {/* Respect reduced motion */}
+            <style>
+              {`
+              @media (prefers-reduced-motion: reduce) {
+                [data-reduce-motion] * {
+                  animation: none !important;
+                  transition: none !important;
+                }
+              }`}
+            </style>
           </div>
         </motion.div>
       )}
