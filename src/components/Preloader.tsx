@@ -41,7 +41,7 @@ const Preloader = () => {
                 }}
                 className="text-8xl"
               >
-                🦁
+                Hello 🦁 World
               </motion.div>
             </motion.div>
 
