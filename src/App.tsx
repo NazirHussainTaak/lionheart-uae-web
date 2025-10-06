@@ -29,11 +29,18 @@ import Deployment from "./pages/solutions/Deployment";
 import EDRXDRNDR from "./pages/solutions/EDRXDRNDR";
 
 // Technology Pages
-import IdentityManagement from "./pages/technologies/IdentityManagement";
+// import IdentityManagement from "./pages/technologies/IdentityManagement";
 import ThreatIntelligence from "./pages/technologies/ThreatIntelligence";
 import SOC from "./pages/technologies/SOC";
 import NOC from "./pages/technologies/NOC";
 import HybridIT from "./pages/technologies/HybridIT";
+
+// Technology Pages
+import IdentityManagement from "./pages/technologies/01-IdentityManagement";
+// import ThreatIntelligence from "./pages/technologies/02-ThreatIntelligence";
+// import SOC from "./pages/technologies/03-SOC";
+// import NOC from "./pages/technologies/04-NOC";
+// import HybridIT from "./pages/technologies/05-HybridIT";
 
 import NotFound from "./pages/NotFound";
 
