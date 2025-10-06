@@ -118,7 +118,7 @@ const Header = () => {
 
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={`${pillBase} ${isActive("/about") ? pillActive : ""}`}>
-                  <Link to="/vendors">{t('nav.vendors')}</Link>
+                  <Link to="/ShowcaseUI">{t('nav.vendors')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 

@@ -15,6 +15,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Vendors from "./pages/Vendors";
+import ShowcaseUI from "./pages/ShowcaseUI";
 
 // Solution Pages
 import DataCenter from "./pages/solutions/01-DataCenter";
@@ -59,6 +60,7 @@ const AppContent = () => {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="vendors" element={<Vendors />} />
+          <Route path="showcaseui" element={<ShowcaseUI />} />
           
           {/* Solution Routes */}
           <Route path="solutions/data-center" element={<DataCenter />} />

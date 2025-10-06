@@ -675,9 +675,11 @@ const ShowcaseUI: React.FC = () => {
 
         {/* CAROUSEL */}
         <DemoSection id="carousel" title="Carousel" subtitle="Swipe / arrow navigation with Embla under the hood.">
-          <Carousel className="w-full max-w-4xl">
+          <Carousel 
+            // className="w-full max-w-4xl"
+          >
             <CarouselContent>
-              {[heroImg, sampleGif, heroImg].map((src, i) => (
+              {[heroImg, sampleGif, heroImg, sampleGif].map((src, i) => (
                 <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="overflow-hidden">
                     <img src={src} alt={`Slide ${i+1}`} className="h-36 w-full object-cover" />
