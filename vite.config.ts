@@ -3,22 +3,25 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
+// detect if we’re running in GitHub Pages (production) or local (development)
+const isGitHubPages = process.env.NODE_ENV === "production";
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
-
-  // ✅ Base path for GitHub Pages
-  base: "/lionheart-uae-web/",
-
-  // ✅ Local development settings
+  base: isGitHubPages ? "/lionheart-uae-web/" : "/", // ✅ dynamic base
   server: {
-    port: 8085,       // run locally at http://localhost:8085
-    open: true,       // automatically open browser
-    host: true,       // allow LAN access if needed
+    port: 8085,
+    open: true,
+    host: true,
+  },
+  build: {
+    outDir: "docs", // keep Pages setup simple
   },
 });
+
 
 
 // import { defineConfig } from "vite";
