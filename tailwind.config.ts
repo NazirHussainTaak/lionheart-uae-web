@@ -72,7 +72,7 @@ export default {
 
         // --- Alternative 1: Orbitron (futuristic headings, clean body) ---
         // sans: ['Inter', 'system-ui', 'sans-serif'], // keep body text clean
-        //heading: ['Orbitron', 'sans-serif'],
+        // heading: ['Orbitron', 'sans-serif'],
 
 
         // --- Alternative 2: Rajdhani ---
