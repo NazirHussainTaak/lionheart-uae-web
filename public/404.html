@@ -1,0 +1,16 @@
+<!-- public/404.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/lionheart-uae-web/" />
+    <script>
+      // Preserve the path for SPA routes
+      const redirect = "/lionheart-uae-web/" + (location.pathname + location.search + location.hash)
+        .replace(/^\/lionheart-uae-web\//, "");
+      location.replace(redirect);
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
