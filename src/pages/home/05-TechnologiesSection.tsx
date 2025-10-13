@@ -55,16 +55,18 @@ const IMG_MAP: Record<TechItemI18n["id"], string> = {
 };
 const PARTNER_NAMES = [
   "Dell EMC",
+  "HPE",
+  "Lenovo",
+  "Sangfor",
   "VMware",
   "Microsoft",
   "CrowdStrike",
   "Fortinet",
   "Veeam",
-  "Palo Alto Networks",
-  "HPE",
+  // "Palo Alto Networks",
   "Cisco",
   "Splunk",
-  "Pure Storage",
+  // "Pure Storage",
   "Nutanix",
 ] as const;
 
@@ -177,12 +179,16 @@ const TechnologiesSection: React.FC = () => {
 
           <motion.div
             variants={containerStagger(0.1, 0.1)}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center"
+            className="grid auto-rows-[90px] grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6"
           >
             {partnerLogos.map(({ name, logo }) => (
-              <motion.div key={name} variants={fadeUp(0.05)} className="flex items-center justify-center">
+              <motion.div
+                key={name}
+                variants={fadeUp(0.05)}
+                className="flex h-full items-center justify-center"
+              >
                 <div
-                  className="flex items-center justify-center p-4 rounded-2xl
+                  className="flex h-full w-full items-center justify-center rounded-2xl p-4
                              bg-white dark:bg-white/5
                              ring-2 ring-black/5 dark:ring-white/5"
                   aria-label={name}
@@ -197,7 +203,7 @@ const TechnologiesSection: React.FC = () => {
                       decoding="async"
                     />
                   ) : (
-                    <span className="text-sm text-muted-foreground">{name}</span>
+                    <span className="text-sm text-center text-muted-foreground">{name}</span>
                   )}
                 </div>
               </motion.div>
