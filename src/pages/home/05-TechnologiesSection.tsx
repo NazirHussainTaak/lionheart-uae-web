@@ -120,10 +120,10 @@ const TechnologiesSection: React.FC = () => {
   const reduce = useReducedMotion();
 
   const tagline = t("technologiesSection.tagline");
+  const tagline2 = t("technologiesSection.tagline2");
   const heading = t("technologiesSection.heading");
   const learnMore = t("technologiesSection.learnMore");
   const items = t("technologiesSection.items", { returnObjects: true }) as TechItemI18n[];
-  const partnersTitle = t("technologiesSection.partnersTitle");
 
   const partnerLogos = useMemo(
     () => PARTNER_NAMES.map((name) => ({ name, logo: getVendorLogo?.(name) })),
@@ -174,7 +174,7 @@ const TechnologiesSection: React.FC = () => {
           className="mt-24"
         >
           <h3 className="text-center text-xl font-semibold text-muted-foreground mb-6">
-            {partnersTitle}
+            {tagline2} 
           </h3>
 
           <motion.div

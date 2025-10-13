@@ -106,13 +106,15 @@
       { "id": "bcdr", "icon": "RefreshCw", "name": "Business Continuity & DR", "href": "/solutions/bcdr", "description": "Resilient backup, recovery, and continuity architectures that keep you operating during incidents." },
       { "id": "deployment", "icon": "Settings", "name": "Deployment & Maintenance", "href": "/solutions/deployment", "description": "Well-deployed and well-maintained servers, storage, and networks reduce risk and downtime." },
       { "id": "edr-xdr-ndr", "icon": "Eye", "name": "EDR / XDR / NDR", "href": "/solutions/edr-xdr-ndr", "description": "End-to-end threat detection and response with continuous monitoring and rapid remediation." }
-    ]
+    ],
+    "readMore": "Read More"
   },
 
   "technologiesSection": {
     "tagline": "Our Technologies",
     "heading": "Core Technologies & Services",
     "learnMore": "Learn More",
+    "tagline2": "Key Industry Alliances",
     "items": [
       {
         "id": "identity",

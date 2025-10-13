@@ -109,13 +109,15 @@
       { "id": "bcdr", "icon": "RefreshCw", "name": "استمرارية الأعمال والتعافي من الكوارث", "href": "/solutions/bcdr", "description": "بنى احتياطية واستعادة واستمرارية مرنة تُبقيك تعمل أثناء الحوادث." },
       { "id": "deployment", "icon": "Settings", "name": "النشر والصيانة", "href": "/solutions/deployment", "description": "خوادم وتخزين وشبكات مُنشأة ومُصانة جيداً تقلّل المخاطر وفترات التوقف." },
       { "id": "edr-xdr-ndr", "icon": "Eye", "name": "EDR / XDR / NDR", "href": "/solutions/edr-xdr-ndr", "description": "اكتشاف واستجابة شاملة للتهديدات مع مراقبة مستمرة ومعالجة سريعة." }
-    ]
+    ],
+    "readMore": " اقرأ المزيد"
   },
 
   "technologiesSection": {
     "tagline": "تقنياتنا",
     "heading": "التقنيات والخدمات الأساسية",
     "learnMore": "اعرف المزيد",
+    "tagline2": "تحالفات القطاع الرئيسية",
     "items": [
       {
         "id": "identity",

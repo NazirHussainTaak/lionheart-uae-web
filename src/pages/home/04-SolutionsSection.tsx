@@ -63,6 +63,8 @@ const ICON_MAP: Record<string, LucideIcon> = {
 // ── Card Component ───────────────────────────────────────────────────────────
 const SolutionCard: React.FC<{ s: SolutionI18n; reduce?: boolean }> = ({ s, reduce }) => {
   const Icon = ICON_MAP[s.icon] ?? Server;
+  const { t, i18n } = useTranslation();
+  const readmore = t("solutionsSection.readMore");
   return (
     <motion.div variants={fadeUp(0, 22, 1.0)} {...(!reduce ? hoverLift : {})} className="h-full">
       <Card className="group card-elevated h-full bg-white text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100 transition-shadow hover:shadow-md focus-within:shadow-md">
@@ -84,7 +86,7 @@ const SolutionCard: React.FC<{ s: SolutionI18n; reduce?: boolean }> = ({ s, redu
             className="font-semibold text-primary underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded"
             aria-label={`Read more about ${s.name}`}
           >
-            Read More →
+            {readmore} →
           </Link>
         </CardContent>
       </Card>
@@ -103,6 +105,7 @@ const SolutionsSection: React.FC = () => {
   const intro = t("solutionsSection.intro");
   const items = t("solutionsSection.items", { returnObjects: true }) as SolutionI18n[];
   const cta = t("solutionsSection.ctaAll");
+  
 
   return (
     <section
