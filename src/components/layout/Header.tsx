@@ -15,6 +15,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { CartDrawer } from "@/components/CartDrawer";
 import logo from "@/assets/logo.svg";
 import { useTranslation } from "react-i18next";
 
@@ -117,8 +118,14 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/about") ? pillActive : ""}`}>
+                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/vendors") ? pillActive : ""}`}>
                   <Link to="/vendors">{t('nav.vendors')}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={`${pillBase} ${isActive("/products") ? pillActive : ""}`}>
+                  <Link to="/products">Products</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
@@ -127,6 +134,7 @@ const Header = () => {
 
           {/* CTA Button & Theme Switcher - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
+            <CartDrawer />
             <LanguageSwitcher />
             <ThemeSwitcher />
             <Button asChild className="btn-hero">
@@ -205,6 +213,14 @@ const Header = () => {
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
                   {t('nav.vendors')}
+                </Link>
+
+                <Link
+                  to="/products"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-medium hover:text-primary transition-colors"
+                >
+                  Products
                 </Link>
 
                 <Button asChild className="btn-hero w-full mt-6">
