@@ -7,6 +7,7 @@ import { fetchProducts, ShopifyProduct } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import SEOHead from "@/components/SEOHead";
+import ProductQuickView from "@/components/ProductQuickView";
 
 export default function Products() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -126,14 +127,17 @@ export default function Products() {
                         </span>
                       </div>
                       
-                      <Button 
-                        onClick={() => handleAddToCart(product)}
-                        className="w-full"
-                        disabled={!variant?.availableForSale}
-                      >
-                        <ShoppingCart className="h-4 w-4 mr-2" />
-                        {variant?.availableForSale ? "Add to Cart" : "Out of Stock"}
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button 
+                          onClick={() => handleAddToCart(product)}
+                          className="flex-1"
+                          disabled={!variant?.availableForSale}
+                        >
+                          <ShoppingCart className="h-4 w-4 mr-2" />
+                          {variant?.availableForSale ? "Add to Cart" : "Out of Stock"}
+                        </Button>
+                        <ProductQuickView product={product} />
+                      </div>
                     </CardContent>
                   </Card>
                 );

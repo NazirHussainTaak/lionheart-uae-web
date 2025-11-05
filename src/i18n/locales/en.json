@@ -33,7 +33,8 @@
       "headline": "End-of-Year Sale",
       "subhead": "Up to 40% off | Limited time",
       "cta": "Shop Deals",
-      "ctaLink": "/products"
+      "ctaLink": "/products",
+      "endDate": "2025-12-31T23:59:59Z"
     },
     "headline": {
       "prefix": "Defend Your Network And Company With ",

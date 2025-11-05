@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/Lion.png";
 import loopGif from "@/assets/showcase/loop.gif";
+import CountdownTimer from "@/components/CountdownTimer";
 
 const stats = [
   { value: "99.98%", label: "Managed Uptime" },
@@ -21,6 +22,7 @@ const HeroSection: React.FC = () => {
     subhead: string; 
     cta: string; 
     ctaLink: string;
+    endDate: string;
   };
 
   return (
@@ -38,14 +40,15 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded-xl p-6 backdrop-blur-sm"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="text-center lg:text-left">
               <h2 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
                 {seasonalBanner.headline}
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4">
                 {seasonalBanner.subhead}
               </p>
+              <CountdownTimer endDate={seasonalBanner.endDate} />
             </div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button asChild size="lg" className="btn-hero">

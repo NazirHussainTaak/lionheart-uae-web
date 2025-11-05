@@ -33,7 +33,8 @@
       "headline": "تخفيضات نهاية العام",
       "subhead": "خصم يصل إلى 40٪ | لفترة محدودة",
       "cta": "تسوق العروض",
-      "ctaLink": "/products"
+      "ctaLink": "/products",
+      "endDate": "2025-12-31T23:59:59Z"
     },
     "headline": {
       "prefix": "احمِ شبكتك وشركتك باستخدام ",
