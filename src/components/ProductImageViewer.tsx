@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import "../types/model-viewer";
 
 interface ProductImage {
   url: string;
