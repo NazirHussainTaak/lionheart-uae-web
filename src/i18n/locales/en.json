@@ -29,12 +29,17 @@
   },
 
   "hero": {
+    "seasonalBanner": {
+      "headline": "End-of-Year Sale",
+      "subhead": "Up to 40% off | Limited time",
+      "cta": "Shop Deals",
+      "ctaLink": "/products"
+    },
     "headline": {
       "prefix": "Defend Your Network And Company With ",
       "highlight": "The Best and trusted",
       "suffix": " Protection Tools."
     },
-
     "description": "We deliver cutting-edge IT solutions powered by world-class vendors and managed by industry-certified professionals.",
     "stats": [
       { "value": "99.98%", "label": "Managed Uptime" },

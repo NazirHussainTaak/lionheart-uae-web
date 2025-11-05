@@ -7,6 +7,7 @@ import { fetchProductByHandle } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import SEOHead from "@/components/SEOHead";
+import ProductImageViewer from "@/components/ProductImageViewer";
 
 export default function ProductDetail() {
   const { handle } = useParams<{ handle: string }>();
@@ -91,7 +92,11 @@ export default function ProductDetail() {
     );
   }
 
-  const image = product.images.edges[0]?.node;
+  const images = product.images.edges.map((edge: any) => ({
+    url: edge.node.url,
+    altText: edge.node.altText,
+    is3D: edge.node.url.endsWith('.glb') || edge.node.url.endsWith('.gltf')
+  }));
 
   return (
     <>
@@ -111,20 +116,14 @@ export default function ProductDetail() {
           </Link>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Product Image */}
-            <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20">
-              {image ? (
-                <img
-                  src={image.url}
-                  alt={image.altText || product.title}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <Server className="h-24 w-24 text-muted-foreground" />
-                </div>
-              )}
-            </div>
+            {/* Product Image Viewer */}
+            {images.length > 0 ? (
+              <ProductImageViewer images={images} productTitle={product.title} />
+            ) : (
+              <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20 flex items-center justify-center">
+                <Server className="h-24 w-24 text-muted-foreground" />
+              </div>
+            )}
 
             {/* Product Info */}
             <div className="space-y-6">

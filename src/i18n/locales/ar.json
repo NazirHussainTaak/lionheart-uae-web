@@ -29,6 +29,12 @@
   },
 
   "hero": {
+    "seasonalBanner": {
+      "headline": "تخفيضات نهاية العام",
+      "subhead": "خصم يصل إلى 40٪ | لفترة محدودة",
+      "cta": "تسوق العروض",
+      "ctaLink": "/products"
+    },
     "headline": {
       "prefix": "احمِ شبكتك وشركتك باستخدام ",
       "highlight": "أفضل الأدوات الموثوقة",

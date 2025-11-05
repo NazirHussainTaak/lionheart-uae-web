@@ -16,15 +16,45 @@ const stats = [
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
   const stats = t("hero.stats", { returnObjects: true }) as { value: string; label: string }[];
+  const seasonalBanner = t("hero.seasonalBanner", { returnObjects: true }) as { 
+    headline: string; 
+    subhead: string; 
+    cta: string; 
+    ctaLink: string;
+  };
 
   return (
-    <section className=" relative section-padding overflow-hidden hero-pattern lion-geometric bg-spring-wood dark:bg-neutral-950 " >
+    <section className="relative section-padding overflow-hidden hero-pattern lion-geometric bg-spring-wood dark:bg-neutral-950">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 hidden dark:block" >
         <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
       </div>
 
       <div className="container-width">
+        {/* Seasonal Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 rounded-xl p-6 backdrop-blur-sm"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-bold text-gradient mb-2">
+                {seasonalBanner.headline}
+              </h2>
+              <p className="text-muted-foreground">
+                {seasonalBanner.subhead}
+              </p>
+            </div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button asChild size="lg" className="btn-hero">
+                <Link to={seasonalBanner.ctaLink}>{seasonalBanner.cta}</Link>
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative space-y-8">
             <img
