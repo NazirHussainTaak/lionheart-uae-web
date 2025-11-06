@@ -120,7 +120,7 @@ export default function ProductDetail() {
             {images.length > 0 ? (
               <ProductImageViewer images={images} productTitle={product.title} />
             ) : (
-              <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20 flex items-center justify-center">
+              <div className="aspect-square rounded-lg overflow-hidden bg-white dark:bg-white flex items-center justify-center">
                 <Server className="h-24 w-24 text-muted-foreground" />
               </div>
             )}

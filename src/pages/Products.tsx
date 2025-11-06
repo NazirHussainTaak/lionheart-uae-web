@@ -94,12 +94,12 @@ export default function Products() {
                 return (
                   <Card key={index} className="card-elevated h-full flex flex-col">
                     <Link to={`/product/${node.handle}`} className="block">
-                      <div className="aspect-square overflow-hidden rounded-t-lg bg-secondary/20">
+                      <div className="aspect-square overflow-hidden rounded-t-lg bg-white dark:bg-white">
                         {image ? (
                           <img
                             src={image.url}
                             alt={image.altText || node.title}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-contain p-6 hover:scale-105 transition-transform duration-300"
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center">

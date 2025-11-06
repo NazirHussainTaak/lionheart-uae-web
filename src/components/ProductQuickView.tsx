@@ -90,7 +90,7 @@ export default function ProductQuickView({ product, trigger }: ProductQuickViewP
 
           <div className="grid md:grid-cols-2 gap-6 mt-4">
             {/* Product Images */}
-            <div className="max-w-md mx-auto w-full">
+            <div className="max-w-md mx-auto w-full bg-white dark:bg-white rounded-lg p-4">
               <ProductImageViewer images={images} productTitle={product.node.title} />
             </div>
 

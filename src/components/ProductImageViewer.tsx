@@ -45,7 +45,7 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
   return (
     <div className="space-y-4">
       {/* Main Image Viewer */}
-      <div className="relative aspect-square rounded-lg overflow-hidden bg-secondary/20 group">
+      <div className="relative aspect-square rounded-lg overflow-hidden bg-white dark:bg-white group">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedIndex}
@@ -75,7 +75,7 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                 <img
                   src={selectedImage?.url}
                   alt={selectedImage?.altText || productTitle}
-                  className="w-full h-full object-cover cursor-zoom-in"
+                  className="w-full h-full object-contain p-8 cursor-zoom-in"
                   loading="lazy"
                 />
               </Zoom>
@@ -123,7 +123,7 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
             <button
               key={index}
               onClick={() => setSelectedIndex(index)}
-              className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all ${
+              className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all bg-white dark:bg-white ${
                 selectedIndex === index
                   ? "border-primary ring-2 ring-primary/20"
                   : "border-transparent hover:border-primary/50"
@@ -137,7 +137,7 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                 <img
                   src={image.url}
                   alt={image.altText || `${productTitle} thumbnail ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-2"
                   loading="lazy"
                 />
               )}
@@ -182,7 +182,7 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                 <img
                   src={selectedImage?.url}
                   alt={selectedImage?.altText || productTitle}
-                  className="max-w-full max-h-[90vh] object-contain"
+                  className="max-w-full max-h-[90vh] object-contain p-8 bg-white rounded-lg"
                 />
               )}
 
