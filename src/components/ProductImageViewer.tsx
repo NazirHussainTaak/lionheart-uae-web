@@ -71,14 +71,16 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                 <Badge className="absolute top-4 left-4 bg-primary/90">3D Model</Badge>
               </div>
             ) : (
-              <Zoom>
-                <img
-                  src={selectedImage?.url}
-                  alt={selectedImage?.altText || productTitle}
-                  className="w-full h-full object-contain p-8 cursor-zoom-in"
-                  loading="lazy"
-                />
-              </Zoom>
+              <div className="w-full h-full flex items-center justify-center">
+                <Zoom>
+                  <img
+                    src={selectedImage?.url}
+                    alt={selectedImage?.altText || productTitle}
+                    className="max-w-full max-h-full object-contain p-8 cursor-zoom-in"
+                    loading="lazy"
+                  />
+                </Zoom>
+              </div>
             )}
           </motion.div>
         </AnimatePresence>
@@ -134,12 +136,14 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                   <Badge variant="secondary" className="text-xs">3D</Badge>
                 </div>
               ) : (
-                <img
-                  src={image.url}
-                  alt={image.altText || `${productTitle} thumbnail ${index + 1}`}
-                  className="w-full h-full object-contain p-2"
-                  loading="lazy"
-                />
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src={image.url}
+                    alt={image.altText || `${productTitle} thumbnail ${index + 1}`}
+                    className="max-w-full max-h-full object-contain p-2"
+                    loading="lazy"
+                  />
+                </div>
               )}
             </button>
           ))}
@@ -179,11 +183,13 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                   style: { width: "90vw", height: "90vh" }
                 })
               ) : (
-                <img
-                  src={selectedImage?.url}
-                  alt={selectedImage?.altText || productTitle}
-                  className="max-w-full max-h-[90vh] object-contain p-8 bg-white rounded-lg"
-                />
+                <div className="flex items-center justify-center w-full h-full">
+                  <img
+                    src={selectedImage?.url}
+                    alt={selectedImage?.altText || productTitle}
+                    className="max-w-full max-h-[90vh] object-contain p-8 bg-white rounded-lg"
+                  />
+                </div>
               )}
 
               {images.length > 1 && (
