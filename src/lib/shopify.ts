@@ -100,7 +100,7 @@ export const PRODUCTS_QUERY = `
               currencyCode
             }
           }
-          images(first: 5) {
+          images(first: 20) {
             edges {
               node {
                 url
@@ -160,7 +160,7 @@ export const PRODUCT_QUERY = `
           currencyCode
         }
       }
-      images(first: 5) {
+      images(first: 20) {
         edges {
           node {
             url
