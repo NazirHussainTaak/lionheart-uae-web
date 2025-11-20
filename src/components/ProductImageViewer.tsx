@@ -66,7 +66,9 @@ export default function ProductImageViewer({ images, productTitle }: ProductImag
                   'ar-modes': "webxr scene-viewer quick-look",
                   'environment-image': "neutral",
                   'shadow-intensity': "1",
-                  style: { width: "100%", height: "100%" }
+                  loading: "eager",
+                  'reveal': "auto",
+                  style: { width: "100%", height: "100%", minHeight: "400px" }
                 })}
                 <Badge className="absolute top-4 left-4 bg-primary/90">3D Model</Badge>
               </div>

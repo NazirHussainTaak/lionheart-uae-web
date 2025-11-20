@@ -100,23 +100,21 @@ export default function ProductDetail() {
     })),
     ...((product.media?.nodes || []).flatMap((media: any) => {
       if (media.mediaContentType === "MODEL_3D") {
-        return (media.sources || []).map((source: any, index: number) => ({
-          url: source.url,
-          altText: media.previewImage?.altText || `${product.title} 3D model ${index + 1}`,
-          is3D: true,
-        }));
+        // Only use .glb format for web display (filter out .usdz which is for iOS AR)
+        const glbSource = media.sources?.find((source: any) => source.format === "glb");
+        if (glbSource) {
+          return [
+            {
+              url: glbSource.url,
+              altText: media.previewImage?.altText || `${product.title} 3D model`,
+              is3D: true,
+            },
+          ];
+        }
+        return [];
       }
 
-      if (media.previewImage?.url) {
-        return [
-          {
-            url: media.previewImage.url,
-            altText: media.previewImage.altText || product.title,
-            is3D: false,
-          },
-        ];
-      }
-
+      // Don't duplicate regular images that are already in product.images
       return [];
     }))
   ];
