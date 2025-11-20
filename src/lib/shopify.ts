@@ -108,6 +108,22 @@ export const PRODUCTS_QUERY = `
               }
             }
           }
+          media(first: 10) {
+            nodes {
+              mediaContentType
+              previewImage {
+                url
+                altText
+              }
+              ... on Model3d {
+                sources {
+                  url
+                  mimeType
+                  format
+                }
+              }
+            }
+          }
           variants(first: 10) {
             edges {
               node {
@@ -165,6 +181,22 @@ export const PRODUCT_QUERY = `
           node {
             url
             altText
+          }
+        }
+      }
+      media(first: 10) {
+        nodes {
+          mediaContentType
+          previewImage {
+            url
+            altText
+          }
+          ... on Model3d {
+            sources {
+              url
+              mimeType
+              format
+            }
           }
         }
       }

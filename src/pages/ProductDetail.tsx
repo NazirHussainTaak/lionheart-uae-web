@@ -92,11 +92,34 @@ export default function ProductDetail() {
     );
   }
 
-  const images = product.images.edges.map((edge: any) => ({
-    url: edge.node.url,
-    altText: edge.node.altText,
-    is3D: edge.node.url.endsWith('.glb') || edge.node.url.endsWith('.gltf')
-  }));
+  const images = [
+    ...product.images.edges.map((edge: any) => ({
+      url: edge.node.url,
+      altText: edge.node.altText,
+      is3D: edge.node.url.endsWith(".glb") || edge.node.url.endsWith(".gltf"),
+    })),
+    ...((product.media?.nodes || []).flatMap((media: any) => {
+      if (media.mediaContentType === "MODEL_3D") {
+        return (media.sources || []).map((source: any, index: number) => ({
+          url: source.url,
+          altText: media.previewImage?.altText || `${product.title} 3D model ${index + 1}`,
+          is3D: true,
+        }));
+      }
+
+      if (media.previewImage?.url) {
+        return [
+          {
+            url: media.previewImage.url,
+            altText: media.previewImage.altText || product.title,
+            is3D: false,
+          },
+        ];
+      }
+
+      return [];
+    }))
+  ];
 
   return (
     <>
